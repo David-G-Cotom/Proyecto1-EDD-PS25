@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/_EDD_Proyecto1_PS25.dir/main.cpp.o -o _EDD_Proyecto1_PS25 
