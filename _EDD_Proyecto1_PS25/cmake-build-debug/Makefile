@@ -153,6 +153,246 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/controllers/GameController.o: src/controllers/GameController.cpp.o
+.PHONY : src/controllers/GameController.o
+
+# target to build an object file
+src/controllers/GameController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/GameController.cpp.o
+.PHONY : src/controllers/GameController.cpp.o
+
+src/controllers/GameController.i: src/controllers/GameController.cpp.i
+.PHONY : src/controllers/GameController.i
+
+# target to preprocess a source file
+src/controllers/GameController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/GameController.cpp.i
+.PHONY : src/controllers/GameController.cpp.i
+
+src/controllers/GameController.s: src/controllers/GameController.cpp.s
+.PHONY : src/controllers/GameController.s
+
+# target to generate assembly for a file
+src/controllers/GameController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/GameController.cpp.s
+.PHONY : src/controllers/GameController.cpp.s
+
+src/controllers/ReportsController.o: src/controllers/ReportsController.cpp.o
+.PHONY : src/controllers/ReportsController.o
+
+# target to build an object file
+src/controllers/ReportsController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/ReportsController.cpp.o
+.PHONY : src/controllers/ReportsController.cpp.o
+
+src/controllers/ReportsController.i: src/controllers/ReportsController.cpp.i
+.PHONY : src/controllers/ReportsController.i
+
+# target to preprocess a source file
+src/controllers/ReportsController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/ReportsController.cpp.i
+.PHONY : src/controllers/ReportsController.cpp.i
+
+src/controllers/ReportsController.s: src/controllers/ReportsController.cpp.s
+.PHONY : src/controllers/ReportsController.s
+
+# target to generate assembly for a file
+src/controllers/ReportsController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/ReportsController.cpp.s
+.PHONY : src/controllers/ReportsController.cpp.s
+
+src/models/Movement.o: src/models/Movement.cpp.o
+.PHONY : src/models/Movement.o
+
+# target to build an object file
+src/models/Movement.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Movement.cpp.o
+.PHONY : src/models/Movement.cpp.o
+
+src/models/Movement.i: src/models/Movement.cpp.i
+.PHONY : src/models/Movement.i
+
+# target to preprocess a source file
+src/models/Movement.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Movement.cpp.i
+.PHONY : src/models/Movement.cpp.i
+
+src/models/Movement.s: src/models/Movement.cpp.s
+.PHONY : src/models/Movement.s
+
+# target to generate assembly for a file
+src/models/Movement.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Movement.cpp.s
+.PHONY : src/models/Movement.cpp.s
+
+src/models/Player.o: src/models/Player.cpp.o
+.PHONY : src/models/Player.o
+
+# target to build an object file
+src/models/Player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Player.cpp.o
+.PHONY : src/models/Player.cpp.o
+
+src/models/Player.i: src/models/Player.cpp.i
+.PHONY : src/models/Player.i
+
+# target to preprocess a source file
+src/models/Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Player.cpp.i
+.PHONY : src/models/Player.cpp.i
+
+src/models/Player.s: src/models/Player.cpp.s
+.PHONY : src/models/Player.s
+
+# target to generate assembly for a file
+src/models/Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Player.cpp.s
+.PHONY : src/models/Player.cpp.s
+
+src/models/objects/Enemy.o: src/models/objects/Enemy.cpp.o
+.PHONY : src/models/objects/Enemy.o
+
+# target to build an object file
+src/models/objects/Enemy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.o
+.PHONY : src/models/objects/Enemy.cpp.o
+
+src/models/objects/Enemy.i: src/models/objects/Enemy.cpp.i
+.PHONY : src/models/objects/Enemy.i
+
+# target to preprocess a source file
+src/models/objects/Enemy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.i
+.PHONY : src/models/objects/Enemy.cpp.i
+
+src/models/objects/Enemy.s: src/models/objects/Enemy.cpp.s
+.PHONY : src/models/objects/Enemy.s
+
+# target to generate assembly for a file
+src/models/objects/Enemy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.s
+.PHONY : src/models/objects/Enemy.cpp.s
+
+src/models/objects/Object.o: src/models/objects/Object.cpp.o
+.PHONY : src/models/objects/Object.o
+
+# target to build an object file
+src/models/objects/Object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Object.cpp.o
+.PHONY : src/models/objects/Object.cpp.o
+
+src/models/objects/Object.i: src/models/objects/Object.cpp.i
+.PHONY : src/models/objects/Object.i
+
+# target to preprocess a source file
+src/models/objects/Object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Object.cpp.i
+.PHONY : src/models/objects/Object.cpp.i
+
+src/models/objects/Object.s: src/models/objects/Object.cpp.s
+.PHONY : src/models/objects/Object.s
+
+# target to generate assembly for a file
+src/models/objects/Object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Object.cpp.s
+.PHONY : src/models/objects/Object.cpp.s
+
+src/models/objects/Potion.o: src/models/objects/Potion.cpp.o
+.PHONY : src/models/objects/Potion.o
+
+# target to build an object file
+src/models/objects/Potion.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Potion.cpp.o
+.PHONY : src/models/objects/Potion.cpp.o
+
+src/models/objects/Potion.i: src/models/objects/Potion.cpp.i
+.PHONY : src/models/objects/Potion.i
+
+# target to preprocess a source file
+src/models/objects/Potion.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Potion.cpp.i
+.PHONY : src/models/objects/Potion.cpp.i
+
+src/models/objects/Potion.s: src/models/objects/Potion.cpp.s
+.PHONY : src/models/objects/Potion.s
+
+# target to generate assembly for a file
+src/models/objects/Potion.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Potion.cpp.s
+.PHONY : src/models/objects/Potion.cpp.s
+
+src/models/objects/Track.o: src/models/objects/Track.cpp.o
+.PHONY : src/models/objects/Track.o
+
+# target to build an object file
+src/models/objects/Track.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Track.cpp.o
+.PHONY : src/models/objects/Track.cpp.o
+
+src/models/objects/Track.i: src/models/objects/Track.cpp.i
+.PHONY : src/models/objects/Track.i
+
+# target to preprocess a source file
+src/models/objects/Track.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Track.cpp.i
+.PHONY : src/models/objects/Track.cpp.i
+
+src/models/objects/Track.s: src/models/objects/Track.cpp.s
+.PHONY : src/models/objects/Track.s
+
+# target to generate assembly for a file
+src/models/objects/Track.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Track.cpp.s
+.PHONY : src/models/objects/Track.cpp.s
+
+src/models/objects/Trap.o: src/models/objects/Trap.cpp.o
+.PHONY : src/models/objects/Trap.o
+
+# target to build an object file
+src/models/objects/Trap.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Trap.cpp.o
+.PHONY : src/models/objects/Trap.cpp.o
+
+src/models/objects/Trap.i: src/models/objects/Trap.cpp.i
+.PHONY : src/models/objects/Trap.i
+
+# target to preprocess a source file
+src/models/objects/Trap.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Trap.cpp.i
+.PHONY : src/models/objects/Trap.cpp.i
+
+src/models/objects/Trap.s: src/models/objects/Trap.cpp.s
+.PHONY : src/models/objects/Trap.s
+
+# target to generate assembly for a file
+src/models/objects/Trap.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Trap.cpp.s
+.PHONY : src/models/objects/Trap.cpp.s
+
+src/models/objects/Treasure.o: src/models/objects/Treasure.cpp.o
+.PHONY : src/models/objects/Treasure.o
+
+# target to build an object file
+src/models/objects/Treasure.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Treasure.cpp.o
+.PHONY : src/models/objects/Treasure.cpp.o
+
+src/models/objects/Treasure.i: src/models/objects/Treasure.cpp.i
+.PHONY : src/models/objects/Treasure.i
+
+# target to preprocess a source file
+src/models/objects/Treasure.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Treasure.cpp.i
+.PHONY : src/models/objects/Treasure.cpp.i
+
+src/models/objects/Treasure.s: src/models/objects/Treasure.cpp.s
+.PHONY : src/models/objects/Treasure.s
+
+# target to generate assembly for a file
+src/models/objects/Treasure.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Treasure.cpp.s
+.PHONY : src/models/objects/Treasure.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +405,36 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/controllers/GameController.o"
+	@echo "... src/controllers/GameController.i"
+	@echo "... src/controllers/GameController.s"
+	@echo "... src/controllers/ReportsController.o"
+	@echo "... src/controllers/ReportsController.i"
+	@echo "... src/controllers/ReportsController.s"
+	@echo "... src/models/Movement.o"
+	@echo "... src/models/Movement.i"
+	@echo "... src/models/Movement.s"
+	@echo "... src/models/Player.o"
+	@echo "... src/models/Player.i"
+	@echo "... src/models/Player.s"
+	@echo "... src/models/objects/Enemy.o"
+	@echo "... src/models/objects/Enemy.i"
+	@echo "... src/models/objects/Enemy.s"
+	@echo "... src/models/objects/Object.o"
+	@echo "... src/models/objects/Object.i"
+	@echo "... src/models/objects/Object.s"
+	@echo "... src/models/objects/Potion.o"
+	@echo "... src/models/objects/Potion.i"
+	@echo "... src/models/objects/Potion.s"
+	@echo "... src/models/objects/Track.o"
+	@echo "... src/models/objects/Track.i"
+	@echo "... src/models/objects/Track.s"
+	@echo "... src/models/objects/Trap.o"
+	@echo "... src/models/objects/Trap.i"
+	@echo "... src/models/objects/Trap.s"
+	@echo "... src/models/objects/Treasure.o"
+	@echo "... src/models/objects/Treasure.i"
+	@echo "... src/models/objects/Treasure.s"
 .PHONY : help
 
 
