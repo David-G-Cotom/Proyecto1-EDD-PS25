@@ -5,9 +5,84 @@
 #ifndef TREEBB_H
 #define TREEBB_H
 
+#include "NodeTree.h"
 
 
-class TreeBB {
+
+template <class T> class TreeBB {
+
+private:
+    NodeTree<T> *root;
+    
+    void insert(NodeTree<T> *value, NodeTree<T> *&root) {
+        if (root == nullptr) {
+            root = value;
+            return;
+        }
+        if (value->getSize() < root->getSize()) {
+            insert(value, root->getLeft());
+        } else {
+            insert(value, root->getRight());
+        }
+    }
+
+    void remove(NodeTree<T> *value, NodeTree<T> *root) {
+        if (value->getSize() == root->getSize()) {
+            if (this->isLeaf(root)) {
+                root = nullptr;
+                return;
+            }
+            if (root->getLeft() == nullptr) {
+                root = root->getRight();
+                return;
+            }
+            if (root->getRight() == nullptr) {
+                root = root->getLeft();
+                return;
+            }
+            root->getRight()->setLeft(root->getLeft()->getRight());
+            root->getLeft()->setRight(root->getRight());
+            root = root->getLeft();
+            return;
+        }
+        if (value->getSize() < root->getSize()) {
+            remove(value, root->getLeft());
+            return;
+        }
+        if (value->getSize() >= root->getSize()) {
+            remove(value, root->getRight());
+        }
+    }
+
+public:
+    TreeBB() {
+        this->root = nullptr;
+    }
+
+    ~TreeBB() {
+        delete this->root;
+    }
+
+    NodeTree<T> *getRoot() {
+        return this->root;
+    }
+
+    void setRoot(NodeTree<T> *root) {
+        this->root = root;
+    }
+
+    void insert(NodeTree<T> *value) {
+        auto *newNode = new NodeTree<T>(value);
+        this->insert(newNode, this->root);
+    }
+
+    void remove(NodeTree<T> *value) {
+        this->remove(value, this->root);
+    }
+
+    bool isLeaf(NodeTree<T> *node) {
+        return node->getLeft() == nullptr && node->getRight() == nullptr;
+    }
 
 };
 

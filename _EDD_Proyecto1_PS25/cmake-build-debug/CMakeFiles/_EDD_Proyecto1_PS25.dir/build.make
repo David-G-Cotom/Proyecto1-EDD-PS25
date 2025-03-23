@@ -223,6 +223,48 @@ CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/objects/Enemy.cpp" -o CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.s
 
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o: CMakeFiles/_EDD_Proyecto1_PS25.dir/flags.make
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o: /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/Board.cpp
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o: CMakeFiles/_EDD_Proyecto1_PS25.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o -MF CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o.d -o CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o -c "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/Board.cpp"
+
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/Board.cpp" > CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.i
+
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/Board.cpp" -o CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.s
+
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o: CMakeFiles/_EDD_Proyecto1_PS25.dir/flags.make
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o: /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/objects/Path.cpp
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o: CMakeFiles/_EDD_Proyecto1_PS25.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o -MF CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o.d -o CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o -c "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/objects/Path.cpp"
+
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/objects/Path.cpp" > CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.i
+
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/objects/Path.cpp" -o CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.s
+
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o: CMakeFiles/_EDD_Proyecto1_PS25.dir/flags.make
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o: /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/controllers/TreesController.cpp
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o: CMakeFiles/_EDD_Proyecto1_PS25.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o -MF CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o.d -o CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o -c "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/controllers/TreesController.cpp"
+
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/controllers/TreesController.cpp" > CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.i
+
+CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/controllers/TreesController.cpp" -o CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.s
+
 # Object files for target _EDD_Proyecto1_PS25
 _EDD_Proyecto1_PS25_OBJECTS = \
 "CMakeFiles/_EDD_Proyecto1_PS25.dir/main.cpp.o" \
@@ -235,7 +277,10 @@ _EDD_Proyecto1_PS25_OBJECTS = \
 "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Track.cpp.o" \
 "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Treasure.cpp.o" \
 "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Potion.cpp.o" \
-"CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.o"
+"CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.o" \
+"CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o" \
+"CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o" \
+"CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o"
 
 # External object files for target _EDD_Proyecto1_PS25
 _EDD_Proyecto1_PS25_EXTERNAL_OBJECTS =
@@ -251,9 +296,12 @@ _EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Track
 _EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Treasure.cpp.o
 _EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Potion.cpp.o
 _EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Enemy.cpp.o
+_EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o
+_EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o
+_EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o
 _EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make
 _EDD_Proyecto1_PS25: CMakeFiles/_EDD_Proyecto1_PS25.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable _EDD_Proyecto1_PS25"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable _EDD_Proyecto1_PS25"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/_EDD_Proyecto1_PS25.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -201,6 +201,54 @@ src/controllers/ReportsController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/ReportsController.cpp.s
 .PHONY : src/controllers/ReportsController.cpp.s
 
+src/controllers/TreesController.o: src/controllers/TreesController.cpp.o
+.PHONY : src/controllers/TreesController.o
+
+# target to build an object file
+src/controllers/TreesController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o
+.PHONY : src/controllers/TreesController.cpp.o
+
+src/controllers/TreesController.i: src/controllers/TreesController.cpp.i
+.PHONY : src/controllers/TreesController.i
+
+# target to preprocess a source file
+src/controllers/TreesController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.i
+.PHONY : src/controllers/TreesController.cpp.i
+
+src/controllers/TreesController.s: src/controllers/TreesController.cpp.s
+.PHONY : src/controllers/TreesController.s
+
+# target to generate assembly for a file
+src/controllers/TreesController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.s
+.PHONY : src/controllers/TreesController.cpp.s
+
+src/models/Board.o: src/models/Board.cpp.o
+.PHONY : src/models/Board.o
+
+# target to build an object file
+src/models/Board.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o
+.PHONY : src/models/Board.cpp.o
+
+src/models/Board.i: src/models/Board.cpp.i
+.PHONY : src/models/Board.i
+
+# target to preprocess a source file
+src/models/Board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.i
+.PHONY : src/models/Board.cpp.i
+
+src/models/Board.s: src/models/Board.cpp.s
+.PHONY : src/models/Board.s
+
+# target to generate assembly for a file
+src/models/Board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.s
+.PHONY : src/models/Board.cpp.s
+
 src/models/Movement.o: src/models/Movement.cpp.o
 .PHONY : src/models/Movement.o
 
@@ -296,6 +344,30 @@ src/models/objects/Object.s: src/models/objects/Object.cpp.s
 src/models/objects/Object.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Object.cpp.s
 .PHONY : src/models/objects/Object.cpp.s
+
+src/models/objects/Path.o: src/models/objects/Path.cpp.o
+.PHONY : src/models/objects/Path.o
+
+# target to build an object file
+src/models/objects/Path.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.o
+.PHONY : src/models/objects/Path.cpp.o
+
+src/models/objects/Path.i: src/models/objects/Path.cpp.i
+.PHONY : src/models/objects/Path.i
+
+# target to preprocess a source file
+src/models/objects/Path.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.i
+.PHONY : src/models/objects/Path.cpp.i
+
+src/models/objects/Path.s: src/models/objects/Path.cpp.s
+.PHONY : src/models/objects/Path.s
+
+# target to generate assembly for a file
+src/models/objects/Path.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Path.cpp.s
+.PHONY : src/models/objects/Path.cpp.s
 
 src/models/objects/Potion.o: src/models/objects/Potion.cpp.o
 .PHONY : src/models/objects/Potion.o
@@ -411,6 +483,12 @@ help:
 	@echo "... src/controllers/ReportsController.o"
 	@echo "... src/controllers/ReportsController.i"
 	@echo "... src/controllers/ReportsController.s"
+	@echo "... src/controllers/TreesController.o"
+	@echo "... src/controllers/TreesController.i"
+	@echo "... src/controllers/TreesController.s"
+	@echo "... src/models/Board.o"
+	@echo "... src/models/Board.i"
+	@echo "... src/models/Board.s"
 	@echo "... src/models/Movement.o"
 	@echo "... src/models/Movement.i"
 	@echo "... src/models/Movement.s"
@@ -423,6 +501,9 @@ help:
 	@echo "... src/models/objects/Object.o"
 	@echo "... src/models/objects/Object.i"
 	@echo "... src/models/objects/Object.s"
+	@echo "... src/models/objects/Path.o"
+	@echo "... src/models/objects/Path.i"
+	@echo "... src/models/objects/Path.s"
 	@echo "... src/models/objects/Potion.o"
 	@echo "... src/models/objects/Potion.i"
 	@echo "... src/models/objects/Potion.s"

@@ -30,4 +30,10 @@ add_executable(_EDD_Proyecto1_PS25 main.cpp
         src/models/objects/Potion.cpp
         includes/models/objects/Enemy.h
         src/models/objects/Enemy.cpp
+        includes/models/Board.h
+        src/models/Board.cpp
+        includes/models/objects/Path.h
+        src/models/objects/Path.cpp
+        includes/controllers/TreesController.h
+        src/controllers/TreesController.cpp
 )
