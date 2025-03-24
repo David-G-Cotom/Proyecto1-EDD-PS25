@@ -4,7 +4,8 @@
 
 #include "../../includes/models/Board.h"
 
-Board::Board() {
+Board::Board(int dimensionX, int dimensionY, int dimensionZ) {
+    this->orthogonalMatrix = new OrthogonalMatrix<Object>(dimensionX, dimensionY, dimensionZ);
     this->treasureNode = nullptr;
 }
 

@@ -5,30 +5,32 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Movement.h"
 #include "Player.h"
-#include "../structs/list/LinkedList.h"
 
 
 class Game {
 
 private:
-    Player *player;
+    std::string playerName;
+    int score;
     double time;
-    LinkedList<Movement> *movements;
+    int movements;
 
 public:
-    Game(Player *player, double time, LinkedList<Movement> *movements);
+    Game(std::string playerName, int score, double time, int movements);
     ~Game();
 
-    Player *getPlayer();
-    void setPlayer(Player *player);
+    std::string getPlayerName();
+    void setPlayerName(std::string playerName);
+
+    int getScore();
+    void setScore(int score);
 
     double getTime();
     void setTime(double time);
 
-    LinkedList<Movement> *getMovements();
-    void setMovements(LinkedList<Movement> *movements);
+    int getMovements();
+    void setMovements(int movements);
 
 };
 

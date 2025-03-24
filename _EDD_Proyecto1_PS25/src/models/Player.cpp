@@ -4,10 +4,11 @@
 
 #include "../../includes/models/Player.h"
 
-Player::Player(int life, std::string name, int score) {
-    this->life = life;
+Player::Player(std::string name) {
+    this->life = this->LIFE_LIMIT;
     this->name = name;
-    this->score = score;
+    this->score = 0;
+    this->movements = nullptr;
 }
 
 Player::~Player() = default;
@@ -18,6 +19,10 @@ int Player::getLife() {
 
 void Player::setLife(int life) {
     this->life = life;
+}
+
+int Player::getLIFE_LIMIT() {
+    return this->LIFE_LIMIT;
 }
 
 std::string Player::getName() {
@@ -34,6 +39,14 @@ int Player::getScore() {
 
 void Player::setScore(int score) {
     this->score = score;
+}
+
+LinkedList<Movement> *Player::getMovements() {
+    return this->movements;
+}
+
+void Player::setMovements(LinkedList<Movement> *movements) {
+    this->movements = movements;
 }
 
 bool Player::getDamage(int damage) {

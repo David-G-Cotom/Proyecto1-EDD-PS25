@@ -4,23 +4,29 @@
 
 #include "../../includes/models/Game.h"
 
-Game::Game(Player *player, double time, LinkedList<Movement> *movements) {
-    this->player = player;
+Game::Game(std::string playerName, int score, double time, int movements) {
+    this->playerName = playerName;
+    this->score = score;
     this->time = time;
     this->movements = movements;
 }
 
-Game::~Game() {
-    delete movements;
-    delete player;
+Game::~Game() = default;
+
+std::string Game::getPlayerName() {
+    return this->playerName;
 }
 
-Player *Game::getPlayer() {
-    return this->player;
+void Game::setPlayerName(std::string playerName) {
+    this->playerName = playerName;
 }
 
-void Game::setPlayer(Player *player) {
-    this->player = player;
+int Game::getScore() {
+    return this->score;
+}
+
+void Game::setScore(int score) {
+    this->score = score;
 }
 
 double Game::getTime() {
@@ -31,11 +37,11 @@ void Game::setTime(double time) {
     this->time = time;
 }
 
-LinkedList<Movement> *Game::getMovements() {
+int Game::getMovements() {
     return this->movements;
 }
 
-void Game::setMovements(LinkedList<Movement> *movements) {
+void Game::setMovements(int movements) {
     this->movements = movements;
 }
 

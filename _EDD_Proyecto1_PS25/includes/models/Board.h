@@ -6,6 +6,7 @@
 #define BOARD_H
 
 #include "../structs/matrix/NodeMatrix.h"
+#include "../structs/matrix/OrthogonalMatrix.h"
 #include "../structs/tree/TreeBB.h"
 #include "objects/Enemy.h"
 #include "objects/Trap.h"
@@ -15,10 +16,11 @@
 class Board {
 
 private:
+    OrthogonalMatrix<Object> *orthogonalMatrix;
     NodeMatrix<Treasure> *treasureNode;
 
 public:
-    Board();
+    Board(int dimensionX, int dimensionY, int dimensionZ);
     ~Board();
 
     NodeMatrix<Treasure> *getTreasureNode();

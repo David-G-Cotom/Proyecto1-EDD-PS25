@@ -38,4 +38,8 @@ add_executable(_EDD_Proyecto1_PS25 main.cpp
         src/controllers/TreesController.cpp
         includes/models/Game.h
         src/models/Game.cpp
+        includes/controllers/HistoryController.h
+        src/controllers/HistoryController.cpp
+        includes/Utilities.h
+        src/Utilities.cpp
 )

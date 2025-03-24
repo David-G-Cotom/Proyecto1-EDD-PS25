@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/Utilities.o: src/Utilities.cpp.o
+.PHONY : src/Utilities.o
+
+# target to build an object file
+src/Utilities.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/Utilities.cpp.o
+.PHONY : src/Utilities.cpp.o
+
+src/Utilities.i: src/Utilities.cpp.i
+.PHONY : src/Utilities.i
+
+# target to preprocess a source file
+src/Utilities.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/Utilities.cpp.i
+.PHONY : src/Utilities.cpp.i
+
+src/Utilities.s: src/Utilities.cpp.s
+.PHONY : src/Utilities.s
+
+# target to generate assembly for a file
+src/Utilities.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/Utilities.cpp.s
+.PHONY : src/Utilities.cpp.s
+
 src/controllers/GameController.o: src/controllers/GameController.cpp.o
 .PHONY : src/controllers/GameController.o
 
@@ -176,6 +200,30 @@ src/controllers/GameController.s: src/controllers/GameController.cpp.s
 src/controllers/GameController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/GameController.cpp.s
 .PHONY : src/controllers/GameController.cpp.s
+
+src/controllers/HistoryController.o: src/controllers/HistoryController.cpp.o
+.PHONY : src/controllers/HistoryController.o
+
+# target to build an object file
+src/controllers/HistoryController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/HistoryController.cpp.o
+.PHONY : src/controllers/HistoryController.cpp.o
+
+src/controllers/HistoryController.i: src/controllers/HistoryController.cpp.i
+.PHONY : src/controllers/HistoryController.i
+
+# target to preprocess a source file
+src/controllers/HistoryController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/HistoryController.cpp.i
+.PHONY : src/controllers/HistoryController.cpp.i
+
+src/controllers/HistoryController.s: src/controllers/HistoryController.cpp.s
+.PHONY : src/controllers/HistoryController.s
+
+# target to generate assembly for a file
+src/controllers/HistoryController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/HistoryController.cpp.s
+.PHONY : src/controllers/HistoryController.cpp.s
 
 src/controllers/ReportsController.o: src/controllers/ReportsController.cpp.o
 .PHONY : src/controllers/ReportsController.o
@@ -501,9 +549,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/Utilities.o"
+	@echo "... src/Utilities.i"
+	@echo "... src/Utilities.s"
 	@echo "... src/controllers/GameController.o"
 	@echo "... src/controllers/GameController.i"
 	@echo "... src/controllers/GameController.s"
+	@echo "... src/controllers/HistoryController.o"
+	@echo "... src/controllers/HistoryController.i"
+	@echo "... src/controllers/HistoryController.s"
 	@echo "... src/controllers/ReportsController.o"
 	@echo "... src/controllers/ReportsController.i"
 	@echo "... src/controllers/ReportsController.s"
