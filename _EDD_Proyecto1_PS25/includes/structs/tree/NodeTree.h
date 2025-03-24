@@ -18,6 +18,7 @@ private:
 public:
     NodeTree(T *data) {
         this->data = data;
+        this->size = 0;
         this->left = nullptr;
         this->right = nullptr;
     }

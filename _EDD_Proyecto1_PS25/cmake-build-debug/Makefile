@@ -249,6 +249,30 @@ src/models/Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.s
 .PHONY : src/models/Board.cpp.s
 
+src/models/Game.o: src/models/Game.cpp.o
+.PHONY : src/models/Game.o
+
+# target to build an object file
+src/models/Game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Game.cpp.o
+.PHONY : src/models/Game.cpp.o
+
+src/models/Game.i: src/models/Game.cpp.i
+.PHONY : src/models/Game.i
+
+# target to preprocess a source file
+src/models/Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Game.cpp.i
+.PHONY : src/models/Game.cpp.i
+
+src/models/Game.s: src/models/Game.cpp.s
+.PHONY : src/models/Game.s
+
+# target to generate assembly for a file
+src/models/Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Game.cpp.s
+.PHONY : src/models/Game.cpp.s
+
 src/models/Movement.o: src/models/Movement.cpp.o
 .PHONY : src/models/Movement.o
 
@@ -489,6 +513,9 @@ help:
 	@echo "... src/models/Board.o"
 	@echo "... src/models/Board.i"
 	@echo "... src/models/Board.s"
+	@echo "... src/models/Game.o"
+	@echo "... src/models/Game.i"
+	@echo "... src/models/Game.s"
 	@echo "... src/models/Movement.o"
 	@echo "... src/models/Movement.i"
 	@echo "... src/models/Movement.s"

@@ -5,9 +5,15 @@
 #ifndef TREASURE_H
 #define TREASURE_H
 
+#include "Object.h"
 
 
-class Treasure {
+class Treasure : public Object {
+
+public:
+    void setImage(std::string image) override;
+
+    Treasure();
 
 };
 

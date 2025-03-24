@@ -5,9 +5,15 @@
 #ifndef PATH_H
 #define PATH_H
 
+#include "Object.h"
 
 
-class Path {
+class Path : public Object {
+
+public:
+    void setImage(std::string image) override;
+
+    Path();
 
 };
 

@@ -154,6 +154,4 @@ CMakeFiles/_EDD_Proyecto1_PS25.dir/main.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
- /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/includes/structs/matrix/OrthogonalMatrix.h \
- /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/includes/structs/matrix/NodeMatrix.h
+ /usr/include/c++/13/bits/istream.tcc

@@ -5,9 +5,21 @@
 #ifndef POTION_H
 #define POTION_H
 
+#include "Object.h"
 
 
-class Potion {
+class Potion : public Object {
+
+private:
+    int healing;
+
+public:
+    void setImage(std::string image) override;
+
+    Potion(int healing);
+
+    int getHealing();
+    void setHealing(int healing);
 
 };
 
