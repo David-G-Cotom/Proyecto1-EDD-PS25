@@ -5,7 +5,10 @@
 #include "../../includes/controllers/GameController.h"
 #include "../../includes/Utilities.h"
 
-GameController::GameController() = default;
+GameController::GameController() {
+    this->enemiesTree = new TreeBB<Enemy>();
+    this->trapsTree = new TreeBB<Trap>();
+}
 
 GameController::~GameController() = default;
 
@@ -24,8 +27,8 @@ void GameController::initializeBoard() {
         Utilities::verifyNumericEntry(dimensionZ, "Se Requiere al Menos 2 Fondos (Eje z) en el Tablero. Ingrese de Nuevo: ");
     }
     this->board = new Board(dimensionX, dimensionY, dimensionZ);
+    this->board->createBoard(this->player, this->enemiesTree, this->trapsTree);
 }
-
 
 void GameController::init() {
     std::string fileName;
@@ -37,8 +40,11 @@ void GameController::init() {
     std::cout << "Ingrese el nombre del jugador: ";
     getline(std::cin, playerName);
     this->player = new Player(playerName);
+    this->player->setImage("@");
+    std::cout << "Jugador Registrado!!!" << std::endl;
 
     this->initializeBoard();
+    this->board->printBoard(this->board->getOrthogonalMatrix()->getRoot(), this->board->getOrthogonalMatrix()->getRoot());
 }
 
 void GameController::generateReports() {

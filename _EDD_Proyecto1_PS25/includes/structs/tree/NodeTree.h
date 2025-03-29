@@ -16,9 +16,9 @@ private:
     NodeTree *right;
 
 public:
-    NodeTree(T *data) {
+    NodeTree(T *data, int size) {
         this->data = data;
-        this->size = 0;
+        this->size = size;
         this->left = nullptr;
         this->right = nullptr;
     }
@@ -47,11 +47,19 @@ public:
         return this->left;
     }
 
+    NodeTree *&getLeft2() {
+        return this->left;
+    }
+
     void setLeft(NodeTree *left) {
         this->left = left;
     }
 
     NodeTree *getRight() {
+        return this->right;
+    }
+
+    NodeTree *&getRight2() {
         return this->right;
     }
 

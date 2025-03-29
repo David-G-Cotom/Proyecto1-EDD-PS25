@@ -4,6 +4,10 @@
 
 #include "../../includes/models/Player.h"
 
+void Player::setImage(std::string image) {
+    this->image = image;
+}
+
 Player::Player(std::string name) {
     this->life = this->LIFE_LIMIT;
     this->name = name;

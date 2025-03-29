@@ -5,38 +5,47 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include "Player.h"
 #include "../structs/matrix/NodeMatrix.h"
 #include "../structs/matrix/OrthogonalMatrix.h"
 #include "../structs/tree/TreeBB.h"
 #include "objects/Enemy.h"
 #include "objects/Trap.h"
-#include "objects/Treasure.h"
 
 
 class Board {
 
 private:
     OrthogonalMatrix<Object> *orthogonalMatrix;
-    NodeMatrix<Treasure> *treasureNode;
+    NodeMatrix<Object> *treasureNode;
+    int totalNodes;
+
+    void putTreasure();
+    void putPlayer(Player *player);
+    void putEnemies(TreeBB<Enemy> *enemiesTree);
+    void putTraps(TreeBB<Trap> *trapsTree);
+    void putPotions();
+    void putTracks();
+
+    std::string getTrack(int x, int y, int z);
 
 public:
     Board(int dimensionX, int dimensionY, int dimensionZ);
     ~Board();
 
-    NodeMatrix<Treasure> *getTreasureNode();
-    void setTreasureNode(NodeMatrix<Treasure> *);
+    OrthogonalMatrix<Object> *getOrthogonalMatrix();
+    void setOrthogonalMatrix(OrthogonalMatrix<Object> *orthogonalMatrix);
 
-    void createBoard();
+    NodeMatrix<Object> *getTreasureNode();
+    void setTreasureNode(NodeMatrix<Object> *treasureNode);
+
+    int getTotalNodes();
+    void setTotalNodes(int totalNodes);
+
+    void createBoard(Player *player, TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *trapsTree);
     void deleteBoard();
 
-    void putTreasure();
-    void putEnemys(TreeBB<Enemy> &enemysTree);
-    void putTraps(TreeBB<Trap> &trapsTree);
-    void putPotions();
-    void putTracks();
-    void completeBoard();
-
-    void printBoard();
+    void printBoard(NodeMatrix<Object> *node, NodeMatrix<Object> *root, int z = 0);
 
 };
 

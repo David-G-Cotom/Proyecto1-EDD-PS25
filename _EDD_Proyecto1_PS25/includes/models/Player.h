@@ -9,8 +9,9 @@
 
 #include "Movement.h"
 #include "../structs/list/LinkedList.h"
+#include "objects/Object.h"
 
-class Player {
+class Player : public Object {
 
 private:
     const int LIFE_LIMIT = 100;
@@ -20,6 +21,8 @@ private:
     LinkedList<Movement> *movements;
 
 public:
+    void setImage(std::string image) override;
+
     Player(std::string name);
     ~Player();
 

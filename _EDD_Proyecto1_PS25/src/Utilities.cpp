@@ -18,6 +18,7 @@ void Utilities::verifyNumericEntry(int &value, std::string message) {
             if (!(ss >> value) || !(ss.eof())) {
                 throw std::runtime_error("Debe Ingresar un Valor Numerico");
             }
+            break;
         } catch (const std::exception &e) {
             std::cout <<">> Error!!!: " << e.what() << std::endl;
         }

@@ -14,19 +14,27 @@ template <class T> class TreeBB {
 private:
     NodeTree<T> *root;
     
-    void insert(NodeTree<T> *value, NodeTree<T> *&root) {
+    void insert(NodeTree<T> *value, NodeTree<T> *&root, bool isInverse) {
         if (root == nullptr) {
             root = value;
             return;
         }
-        if (value->getSize() < root->getSize()) {
-            insert(value, root->getLeft());
-        } else {
-            insert(value, root->getRight());
+        if (isInverse) {    // ARBOL DE TRAMPAS
+            if (value->getSize() < root->getSize()) {
+                insert(value, root->getRight2(), isInverse);
+            } else {
+                insert(value, root->getLeft2(), isInverse);
+            }
+        } else {    // ARBOL DE ENEMIGOS
+            if (value->getSize() < root->getSize()) {
+                insert(value, root->getLeft2(), isInverse);
+            } else {
+                insert(value, root->getRight2(), isInverse);
+            }
         }
     }
 
-    void remove(NodeTree<T> *value, NodeTree<T> *root) {
+    void remove(NodeTree<T> *value, NodeTree<T> *&root) {
         if (value->getSize() == root->getSize()) {
             if (this->isLeaf(root)) {
                 root = nullptr;
@@ -71,9 +79,8 @@ public:
         this->root = root;
     }
 
-    void insert(NodeTree<T> *value) {
-        auto *newNode = new NodeTree<T>(value);
-        this->insert(newNode, this->root);
+    void insert(NodeTree<T> *newNode, bool isInverse) {
+        this->insert(newNode, this->root, isInverse);
     }
 
     void remove(NodeTree<T> *value) {

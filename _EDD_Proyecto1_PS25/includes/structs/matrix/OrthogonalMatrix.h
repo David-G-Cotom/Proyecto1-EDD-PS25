@@ -9,7 +9,7 @@
 #include <ostream>
 
 #include "NodeMatrix.h"
-
+#include "../../models/objects/Path.h"
 
 
 template <class T> class OrthogonalMatrix {
@@ -23,7 +23,9 @@ private:
         for (int i = 0; i < this->dimensionX - 1; i++) {
             this->connectNodes(aux, i);
             aux = this->getNode(i, 0, 0);
-            auto *newNode = new NodeMatrix<T>(nullptr, i + 1, 0, 0);
+            auto path = new Path();
+            path->setImage(" ");
+            auto *newNode = new NodeMatrix<T>(path, i + 1, 0, 0);
             aux->setBottom(newNode);
             newNode->setTop(aux);
             aux = newNode;
@@ -34,7 +36,9 @@ private:
 
     void connectNodes(NodeMatrix<T> *aux, int i, int j) {
         for (int k = 0; k < this->dimensionZ - 1; k++) {
-            auto *newNode = new NodeMatrix<T>(nullptr, i, j, k + 1);
+            auto path = new Path();
+            path->setImage(" ");
+            auto *newNode = new NodeMatrix<T>(path, i, j, k + 1);
             aux->setBack(newNode);
             newNode->setFront(aux);
             if (j > 0) {
@@ -53,7 +57,9 @@ private:
         for (int j = 0; j < this->dimensionY - 1; j++) {
             this->connectNodes(aux, i, j);
             aux = this->getNode(i, j, 0);
-            auto *newNode = new NodeMatrix<T>(nullptr, i, j + 1, 0);
+            auto path = new Path();
+            path->setImage(" ");
+            auto *newNode = new NodeMatrix<T>(path, i, j + 1, 0);
             aux->setNext(newNode);
             newNode->setPrev(aux);
             if (i > 0) {
@@ -67,7 +73,9 @@ private:
 
 public:
     OrthogonalMatrix(int dimensionX, int dimensionY, int dimensionZ) {
-        this->root = new NodeMatrix<T>(nullptr, 0, 0, 0);
+        auto path = new Path();
+        path->setImage(" ");
+        this->root = new NodeMatrix<T>(path, 0, 0, 0);
         this->dimensionX = dimensionX;
         this->dimensionY = dimensionY;
         this->dimensionZ = dimensionZ;
@@ -116,13 +124,13 @@ public:
 
     NodeMatrix<T> *getNode(int x, int y, int z) {
         NodeMatrix<T> *aux = this->root;
-        for (int i = 0; i < x && aux->getBottom() != nullptr; ++i) {
+        for (int i = 0; i < x; ++i) {
             aux = aux->getBottom();
         }
-        for (int i = 0; i < y && aux->getNext() != nullptr; ++i) {
+        for (int i = 0; i < y; ++i) {
             aux = aux->getNext();
         }
-        for (int i = 0; i < z && aux->getBack() != nullptr; ++i) {
+        for (int i = 0; i < z; ++i) {
             aux = aux->getBack();
         }
         return aux;
