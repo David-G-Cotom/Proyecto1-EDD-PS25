@@ -8,6 +8,8 @@
 GameController::GameController() {
     this->enemiesTree = new TreeBB<Enemy>();
     this->trapsTree = new TreeBB<Trap>();
+    this->historyController = new HistoryController();
+    this->reportsController = new ReportsController();
 }
 
 GameController::~GameController() = default;
@@ -48,7 +50,51 @@ void GameController::init() {
 }
 
 void GameController::generateReports() {
-
+    int option;
+    do {
+        std::cout << "1. Reporte de la Partida" << std::endl;
+        std::cout << "2. Ubicacion del tesoro y trayectoria del jugador" << std::endl;
+        std::cout << "3. Pistas encontradas y su distancia al tesoro" << std::endl;
+        std::cout << "4. Enemigos enfrentados y trampas activadas" << std::endl;
+        std::cout << "5. Tabla de posiciones con los mejores jugadores" << std::endl;
+        std::cout << "6. Grafico de los arboles de enemigos y trampas" << std::endl;
+        std::cout << "7. Salir" << std::endl;
+        Utilities::verifyNumericEntry(option, "Opcion: ");
+        switch (option) {
+            case 1: {
+                this->reportsController->gameReport();
+                break;
+            }
+            case 2: {
+                this->reportsController->treasureLocationReport();
+                break;
+            }
+            case 3: {
+                this->reportsController->trackReport();
+                break;
+            }
+            case 4: {
+                this->reportsController->reportEnemiesAndTraps();
+                break;
+            }
+            case 5: {
+                this->reportsController->gameHistoryReport(this->gamesHistory);
+                break;
+            }
+            case 6: {
+                this->reportsController->treeReport(this->enemiesTree, this->trapsTree);
+                break;
+            }
+            case 7: {
+                std::cout << "SALIENDO DEL JUEOG!!!" << std::endl;
+                break;
+            }
+            default: {
+                std::cout << "Error!!! Opcion incorrecta" << std::endl;
+                break;
+            }
+        }
+    } while (option != 7);
 }
 
 

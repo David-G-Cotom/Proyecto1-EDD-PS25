@@ -6,6 +6,7 @@
 #define GAMECONTROLLER_H
 
 #include "HistoryController.h"
+#include "ReportsController.h"
 #include "../models/Board.h"
 #include "../models/Game.h"
 #include "../models/Player.h"
@@ -27,6 +28,7 @@ private:
     LinkedList<Game> *gamesHistory;
     long time;
     HistoryController *historyController;
+    ReportsController *reportsController;
 
     void initializeBoard();
 
