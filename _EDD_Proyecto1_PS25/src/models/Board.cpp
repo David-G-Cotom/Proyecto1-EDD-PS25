@@ -34,6 +34,22 @@ void Board::setTreasureNode(NodeMatrix<Object> *treasureNode) {
     this->treasureNode = treasureNode;
 }
 
+NodeMatrix<Object> *Board::getPlayerNode() {
+    return this->playerNode;
+}
+
+void Board::setPlayerNode(NodeMatrix<Object> *playerNode) {
+    this->playerNode = playerNode;
+}
+
+Object *Board::getDataBelowThePlayer() {
+    return this->dataBelowThePlayer;
+}
+
+void Board::setDataBelowThePlayer(Object *dataBelowThePlayer) {
+    this->dataBelowThePlayer = dataBelowThePlayer;
+}
+
 int Board::getTotalNodes() {
     return this->totalNodes;
 }
@@ -92,8 +108,9 @@ void Board::putPlayer(Player *player) {
         playerNode = this->orthogonalMatrix->getNode(x, y, z);
     } while (playerNode->getData() == nullptr
         || dynamic_cast<Path*>(playerNode->getData()) == nullptr);
-    delete playerNode->getData();
+    this->dataBelowThePlayer = playerNode->getData();
     playerNode->setData(player);
+    this->playerNode = playerNode;
     std::cout << "Jugador Colocado en el Mapa" << std::endl;
 }
 
@@ -201,7 +218,7 @@ std::string Board::getTrack(int x, int y, int z) {
 void Board::printBoard(NodeMatrix<Object> *node, NodeMatrix<Object> *root, int z) {
     NodeMatrix<Object> *aux = node;
     if (z >= 0 && node == root) {
-        std::cout << "\nTablero en Z = " << z << std::endl;
+        std::cout << "Tablero en Z = " << z << std::endl;
     }
     while (aux != nullptr) {
         std::cout << "|" << aux->getData()->image;

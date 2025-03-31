@@ -4,6 +4,7 @@
 
 #include "../../includes/controllers/GameController.h"
 #include "../../includes/Utilities.h"
+#include "../../includes/models/objects/Potion.h"
 
 GameController::GameController() {
     this->enemiesTree = new TreeBB<Enemy>();
@@ -46,7 +47,132 @@ void GameController::init() {
     std::cout << "Jugador Registrado!!!" << std::endl;
 
     this->initializeBoard();
-    this->board->printBoard(this->board->getOrthogonalMatrix()->getRoot(), this->board->getOrthogonalMatrix()->getRoot());
+
+    char movement;
+    while (this->player->getLife() > 0 && !this->gameOver) {
+        this->board->printBoard(this->board->getOrthogonalMatrix()->getRoot(), this->board->getOrthogonalMatrix()->getRoot());
+        std::cout << "Vida del Jugador: " << this->player->getLife() << std::endl;
+        std::cout << "Puntos del Jugaodr: " << this->player->getScore() << std::endl;
+        NodeMatrix<Object> *newNode;
+        do {
+            std::cout << "W. Arriba, S. Abajo, A. Izquierda, D. Derecha, Q. Atras, E. Adelante" << std::endl;
+            std::cout << "Ingrese Movimiento: ";
+            std::cin >> movement;
+            movement = toupper(movement);
+            //OBTENER EL NODO AL QUE SE MOVIO
+            newNode = this->verifyMovement(movement);
+            //VERIFICAR QUE SEA UN MOVIMIENTO VALIDO (letra correcta y dentro del tablero)
+            if (newNode == nullptr) {
+                std::cout << "Movimiento Incorrecto!!!" << std::endl;
+            }
+        } while (newNode == nullptr);
+        //CHEKEAR EL NODO NUEVO (interactua con el nuevo nodo)
+        //REGISTRAR LAS ACIONES DEL MOVIMIENTO
+        this->checkNode(newNode);
+        //HACER EL MOVIMIENTO DE NODOS
+        this->board->getPlayerNode()->setData(this->board->getDataBelowThePlayer());
+        this->board->setDataBelowThePlayer(newNode->getData());
+        newNode->setData(this->player);
+        this->board->setPlayerNode(newNode);
+    }
+}
+
+NodeMatrix<Object> *GameController::verifyMovement(const char movement) {
+    switch (movement) {
+        case 'W': { return this->board->getPlayerNode()->getTop(); }
+        case 'S': { return this->board->getPlayerNode()->getBottom(); }
+        case 'A': { return this->board->getPlayerNode()->getPrev(); }
+        case 'D': { return this->board->getPlayerNode()->getNext(); }
+        case 'Q': { return this->board->getPlayerNode()->getBack(); }
+        case 'E': { return this->board->getPlayerNode()->getFront(); }
+        default: { return nullptr; }
+    }
+}
+
+void GameController::checkNode(NodeMatrix<Object> *node) {
+    //ENCONTRO TESORO
+    if (node->getX() == this->board->getTreasureNode()->getX()
+        && node->getY() == this->board->getTreasureNode()->getY()
+        && node->getZ() == this->board->getTreasureNode()->getZ()) {
+        std::cout << "Felicidades!!! Has Encontrado el Tesotro" << std::endl;
+        this->player->setScore(this->player->getScore() + this->player->getLife()*10);
+        this->gameOver = true;
+        auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), "Ha encontrado el Tesoro", this->player->getLife());
+        this->player->getMovements()->addElementAt(newMovement);
+        return;
+    }
+    //ENCONTRO ENEMIGO
+    if (node->getData() != nullptr
+        && dynamic_cast<Enemy*>(node->getData()) != nullptr) {
+        int level = ((node->getX() + 1) * 100) + ((node->getY() + 1) * 10) + (node->getZ() + 1);
+        Enemy *enemy = this->enemiesTree->search(level);
+        std::cout << "Encontraste un Enemigo!!! de nivel: " << enemy->getLevel() << std::endl;
+        std::string event = "Ha encontrado un Enemigo de nivel " + enemy->getLevel();
+        event += " y ha recibido " + enemy->getDamage();
+        event += " de damage.";
+        if (this->player->getDamage(enemy->getDamage())) {
+            std::cout << "Has Perdido!!! Te has Quedado Sin Vida" << std::endl;
+            this->gameOver = true;
+            event += "Ha perdido porque se quedo sin vida";
+        }
+        auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), event, this->player->getLife());
+        this->player->getMovements()->addElementAt(newMovement);
+        auto *path = new Path();
+        path->setImage(" ");
+        node->setData(path);
+        return;
+    }
+    //ENCONTRO TRAMPA
+    if (node->getData() != nullptr
+        && dynamic_cast<Trap*>(node->getData()) != nullptr) {
+        int level = ((node->getZ() + 1) * 100) + ((node->getY() + 1) * 10) + (node->getX() + 1);
+        Trap *trap = this->trapsTree->search(level);
+        std::cout << "Encontraste una Trampa!!! de nivel: " << trap->getLevel() << std::endl;
+        std::string event = "Ha encontrado una Trampa de nivel " + trap->getLevel();
+        event += " y ha recibido " + trap->getDamage();
+        event += " de damage.";
+        if (this->player->getDamage(trap->getDamage())) {
+            std::cout << "Has Perdido!!! Te has Quedado Sin Vida" << std::endl;
+            this->gameOver = true;
+            event += "Ha perdido porque se quedo sin vida";
+        }
+        auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), event, this->player->getLife());
+        this->player->getMovements()->addElementAt(newMovement);
+        auto *path = new Path();
+        path->setImage(" ");
+        node->setData(path);
+        return;
+    }
+    //ENCONTRO PISTA
+    if (node->getData() != nullptr) {
+        auto *track = dynamic_cast<Track*>(node->getData());
+        if (track != nullptr) {
+            std::cout << "Encontraste una Pista!!! con el Siguiente Mensaje: " << track->getType() << std::endl;
+            std::string event = "Ha encontrado una Pista con el mensaje de: " + track->getType();
+            auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), event, this->player->getLife());
+            this->player->getMovements()->addElementAt(newMovement);
+            return;
+        }
+    }
+    //ENCONTRO POSIMA
+    if (node->getData() != nullptr) {
+        auto *potion = dynamic_cast<Potion*>(node->getData());
+        if (potion != nullptr) {
+            std::cout << "Encontraste una Posion!!!";
+            std::string event = "Ha encontrado una Posion y ha recuperado: " + potion->getHealing();
+            event += " de salud";
+            auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), event, this->player->getLife());
+            this->player->getMovements()->addElementAt(newMovement);
+            this->player->getHealth(potion->getHealing());
+            auto *path = new Path();
+            path->setImage(" ");
+            node->setData(path);
+            return;
+        }
+    }
+    //NO ENCONTRO NADA
+    auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), "No encontro nada en el camino ", this->player->getLife());
+    this->player->getMovements()->addElementAt(newMovement);
 }
 
 void GameController::generateReports() {

@@ -18,6 +18,8 @@ class Board {
 private:
     OrthogonalMatrix<Object> *orthogonalMatrix;
     NodeMatrix<Object> *treasureNode;
+    NodeMatrix<Object> *playerNode;
+    Object *dataBelowThePlayer;
     int totalNodes;
 
     void putTreasure();
@@ -38,6 +40,12 @@ public:
 
     NodeMatrix<Object> *getTreasureNode();
     void setTreasureNode(NodeMatrix<Object> *treasureNode);
+
+    NodeMatrix<Object> *getPlayerNode();
+    void setPlayerNode(NodeMatrix<Object> *playerNode);
+
+    Object *getDataBelowThePlayer();
+    void setDataBelowThePlayer(Object *dataBelowThePlayer);
 
     int getTotalNodes();
     void setTotalNodes(int totalNodes);

@@ -62,6 +62,21 @@ private:
         }
     }
 
+    T *search(NodeTree<T> *root, int size) {
+        if (root == nullptr) {
+            return nullptr;
+        }
+        if (size == root->getSize()) {
+            return root->getData();
+        }
+        if (size < root->getSize()) {
+            return search(root->getLeft(), size);
+        }
+        if (size >= root->getSize()) {
+            return search(root->getRight(), size);
+        }
+    }
+
 public:
     TreeBB() {
         this->root = nullptr;
@@ -85,6 +100,10 @@ public:
 
     void remove(NodeTree<T> *value) {
         this->remove(value, this->root);
+    }
+
+    T *search(int size) {
+        return this->search(this->root, size);
     }
 
     bool isLeaf(NodeTree<T> *node) {

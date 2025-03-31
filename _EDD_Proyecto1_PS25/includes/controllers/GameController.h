@@ -24,11 +24,11 @@ private:
     Player *player;
     TreeBB<Enemy> *enemiesTree;
     TreeBB<Trap> *trapsTree;
-    LinkedList<Track> *tracks;
     LinkedList<Game> *gamesHistory;
     long time;
     HistoryController *historyController;
     ReportsController *reportsController;
+    bool gameOver;
 
     void initializeBoard();
 
@@ -38,9 +38,9 @@ public:
 
     void init();
 
-    bool movePlayer(int x, int y, int z);
+    NodeMatrix<Object> *verifyMovement(char movement);
 
-    void checkNode();
+    void checkNode(NodeMatrix<Object> *node);
 
     void generateReports();
 
