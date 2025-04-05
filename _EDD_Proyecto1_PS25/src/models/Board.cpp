@@ -188,17 +188,17 @@ void Board::putTracks() {
     } while (trackNode->getData() == nullptr
         || dynamic_cast<Path*>(trackNode->getData()) == nullptr);
     delete trackNode->getData();
-    std::string trackType = this->getTrack(x, y, z);
-    auto *track = new Track(trackType);
+    int distance = std::abs(x - this->treasureNode->getX()) + std::abs(y - this->treasureNode->getY()) + std::abs(z - this->treasureNode->getZ());
+    std::string trackType = this->getTrack(distance);
+    auto *track = new Track(trackType, distance);
     track->setImage("?");
     trackNode->setData(track);
     std::cout << "Pista Colocada en el Mapa" << std::endl;
 }
 
-std::string Board::getTrack(int x, int y, int z) {
+std::string Board::getTrack(const int distance) {
     std::string type;
-    int distancia = std::abs(x - this->treasureNode->getX()) + std::abs(y - this->treasureNode->getY()) + std::abs(z - this->treasureNode->getZ());
-    switch (distancia) {
+    switch (distance) {
         case 1: {
             type = "CALIENTE";
             break;

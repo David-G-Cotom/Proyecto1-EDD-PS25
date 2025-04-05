@@ -29,7 +29,7 @@ private:
     void putPotions();
     void putTracks();
 
-    std::string getTrack(int x, int y, int z);
+    std::string getTrack(int distance);
 
 public:
     Board(int dimensionX, int dimensionY, int dimensionZ);

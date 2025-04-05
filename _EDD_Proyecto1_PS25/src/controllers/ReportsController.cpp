@@ -12,20 +12,63 @@ ReportsController::ReportsController() = default;
 
 ReportsController::~ReportsController() = default;
 
-void ReportsController::gameReport() {
-
+void ReportsController::treasureLocationReport(NodeMatrix<Object> *treasureNode, LinkedList<Movement> *playerMovements) {
+    std::cout << "--- Ubicacion del Tesoro ---" << std::endl;
+    std::cout << "Coordenada X: " << treasureNode->getX() << std::endl;
+    std::cout << "Coordenada Y: " << treasureNode->getY() << std::endl;
+    std::cout << "Coordenada Z: " << treasureNode->getZ() << std::endl;
+    std::cout << "--- Trayectoria del Jugador ---" << std::endl;
+    NodeList<Movement> *aux = playerMovements->getHead();
+    while (aux != nullptr) {
+        std::cout << aux->getData()->convertToString() << std::endl;
+        std::cout << "--- --- ---" << std::endl;
+        aux = aux->getNext();
+    }
 }
 
-void ReportsController::treasureLocationReport() {
-
+void ReportsController::trackReport(LinkedList<Track> *tracksFound) {
+    std::cout << "--- Pistas Encontradas y su Distancia al Tesoro ---" << std::endl;
+    NodeList<Track> *aux = tracksFound->getHead();
+    while (aux != nullptr) {
+        std::cout << "Pista de Tipo: " << aux->getData()->getType() << ", con Distancia de " << aux->getData()->getDistance() << " pasos" << std::endl;
+        aux = aux->getNext();
+    }
+    std::cout << std::endl;
 }
 
-void ReportsController::trackReport() {
-
+void ReportsController::reportEnemiesAndTraps(TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *trapsTree) {
+    std::cout << "--- Enemigos Enfrentados ---" << std::endl;
+    this->traversePreOrden(enemiesTree->getRoot());
+    std::cout << "--- Trampas Activadas ---" << std::endl;
+    this->traversePreOrden(trapsTree->getRoot());
 }
 
-void ReportsController::reportEnemiesAndTraps() {
+void ReportsController::traversePreOrden(NodeTree<Enemy> *nodeEnemy) {
+    if (nodeEnemy != nullptr) {
+        if (nodeEnemy->getData()->getWasFound()) {
+            std::cout << "Enemigo de Nivel: " << nodeEnemy->getData()->getLevel() << " con un Damage de " << nodeEnemy->getData()->getDamage() << std::endl;
+        }
+        if (nodeEnemy->getLeft() != nullptr) {
+            traversePreOrden(nodeEnemy->getLeft());
+        }
+        if (nodeEnemy->getRight() != nullptr) {
+            traversePreOrden(nodeEnemy->getRight());
+        }
+    }
+}
 
+void ReportsController::traversePreOrden(NodeTree<Trap> *nodeTrap) {
+    if (nodeTrap != nullptr) {
+        if (nodeTrap->getData()->getWasFound()) {
+            std::cout << "Trampa de Nivel: " << nodeTrap->getData()->getLevel() << " con un Damage de " << nodeTrap->getData()->getDamage() << std::endl;
+        }
+        if (nodeTrap->getLeft() != nullptr) {
+            traversePreOrden(nodeTrap->getLeft());
+        }
+        if (nodeTrap->getRight() != nullptr) {
+            traversePreOrden(nodeTrap->getRight());
+        }
+    }
 }
 
 void ReportsController::gameHistoryReport(LinkedList<Game> *gamesHistory) {
@@ -76,7 +119,7 @@ void ReportsController::merge(LinkedList<Game> *array, int left, int half, int r
 
     while (i < leftArraySize && j < rightArraySize) {
         if (orderType) {    // Ordenado por puntos
-            if (leftArray->getElementAt(i)->getData()->getScore() <= rightArray->getElementAt(j)->getData()->getScore()) {
+            if (leftArray->getElementAt(i)->getData()->getScore() >= rightArray->getElementAt(j)->getData()->getScore()) {
                 array->getElementAt(k)->setData(leftArray->getElementAt(i)->getData());
                 i++;
             } else {
@@ -112,18 +155,17 @@ void ReportsController::printLeaderBoard(LinkedList<Game> *gamesHistory) {
     NodeList<Game> *aux = gamesHistory->getHead();
     int i = 1;
     while (aux != nullptr) {
-        std::cout << i << aux->getData()->getPlayerName() << " -> " << aux->getData()->getScore() << " puntos, "
-        << aux->getData()->getMovements() << " movimientos -> " << aux->getData()->getTime() << " ms\n" << std::endl;
+        std::cout << i << ". " << aux->getData()->getPlayerName() << " -> " << aux->getData()->getScore() << " puntos, "
+        << aux->getData()->getMovements() << " movimientos -> " << aux->getData()->getTime() / 1000 << " s" << std::endl;
         aux = aux->getNext();
         i++;
     }
-    std::cout << std::endl;
 }
 
 void ReportsController::treeReport(TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *trapsTree) {
-    std::string dot = "digraph{\nrankdir = TB;\nlabel = \"Arbol de Enemigos y Trampas\";\nlabelloc = t;\nnode[color=transparent style=filled];\nnode[shape = circle];\n";
+    std::string dot = "digraph{\nrankdir = TB;\nlabel = \"Arbol de Enemigos y Trampas\";\nlabelloc = t;\nnode[color=transparent style=filled];\nnode[shape = box];Enemigos\nnode[shape = circle];\n";
     dot += this->traversePreOrden(enemiesTree->getRoot(), dot);
-    dot += "node[shape = circle];\n";
+    dot += "\nnode[color=transparent style=filled];\nnode[shape = box];Trampas\nnode[shape = circle];\n";
     dot += this->traversePreOrden(trapsTree->getRoot(), dot) + "\n}";
     std::ofstream file;
     file.open("../Graficas/ReporteArboles.txt");
@@ -132,25 +174,26 @@ void ReportsController::treeReport(TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *tra
         file.close();
     }
     system("dot -Tpng ../Graficas/ReporteArboles.txt -o ../Graficas/ReporteArboles.png");
-    std::cout << ">> Reporte Generado!!!" << std::endl;
+    std::cout << "\n>> Reporte Generado!!!" << std::endl;
 }
 
 std::string ReportsController::traversePreOrden(NodeTree<Enemy> *nodeEnemy, std::string dot) {
     std::string dotAux;
     if (nodeEnemy != nullptr) {
-        dotAux += "\"" + nodeEnemy->getData()->getLevel();
-        dotAux += "\"[label=<" + nodeEnemy->getData()->getLevel();
-        dotAux += "<br/>Damage: " + nodeEnemy->getData()->getDamage();
-        dotAux += "> fillcolor=\"#8080F0\"];\n";
+        dotAux += "\"" + std::to_string(nodeEnemy->getData()->getLevel())
+        + "\"[label=<" + std::to_string(nodeEnemy->getData()->getLevel())
+        + "<br/>Damage: " + std::to_string(nodeEnemy->getData()->getDamage())
+        + "<br/>Encontrado: " + std::to_string(nodeEnemy->getData()->getWasFound())
+        + "> fillcolor=\"#8080F0\"];\n";
         if (nodeEnemy->getLeft() != nullptr) {
-            dotAux += traversePreOrden(nodeEnemy->getLeft(), dotAux) + "\"";
-            dotAux += nodeEnemy->getData()->getLevel() + "\" -> \"" + nodeEnemy->getLeft()->getData()->getLevel();
-            dotAux += "\";\n";
+            dotAux += traversePreOrden(nodeEnemy->getLeft(), dotAux) + "\""
+            +  std::to_string(nodeEnemy->getData()->getLevel()) + "\" -> \"" + std::to_string(nodeEnemy->getLeft()->getData()->getLevel())
+            + "\";\n";
         }
         if (nodeEnemy->getRight() != nullptr) {
-            dotAux += traversePreOrden(nodeEnemy->getRight(), dotAux) + "\"";
-            dotAux += nodeEnemy->getData()->getLevel() + "\" -> \"" + nodeEnemy->getRight()->getData()->getLevel();
-            dotAux += "\";\n";
+            dotAux += traversePreOrden(nodeEnemy->getRight(), dotAux) + "\""
+            + std::to_string(nodeEnemy->getData()->getLevel()) + "\" -> \"" + std::to_string(nodeEnemy->getRight()->getData()->getLevel())
+            + "\";\n";
         }
     }
     return dotAux;
@@ -159,19 +202,20 @@ std::string ReportsController::traversePreOrden(NodeTree<Enemy> *nodeEnemy, std:
 std::string ReportsController::traversePreOrden(NodeTree<Trap> *nodeTrap, std::string dot) {
     std::string dotAux;
     if (nodeTrap != nullptr) {
-        dotAux += "\"" + nodeTrap->getData()->getLevel();
-        dotAux += "\"[label=<" + nodeTrap->getData()->getLevel();
-        dotAux += "<br/>Damage: " + nodeTrap->getData()->getDamage();
-        dotAux += "> fillcolor=\"#8080F0\"];\n";
+        dotAux += "\"" + std::to_string(nodeTrap->getData()->getLevel())
+        + "\"[label=<" + std::to_string(nodeTrap->getData()->getLevel())
+        + "<br/>Damage: " + std::to_string(nodeTrap->getData()->getDamage())
+        + "<br/>Encontrada: " + std::to_string(nodeTrap->getData()->getWasFound())
+        + "> fillcolor=\"#8080F0\"];\n";
         if (nodeTrap->getLeft() != nullptr) {
-            dotAux += traversePreOrden(nodeTrap->getLeft(), dotAux) + "\"";
-            dotAux += nodeTrap->getData()->getLevel() + "\" -> \"" + nodeTrap->getLeft()->getData()->getLevel();
-            dotAux += "\";\n";
+            dotAux += traversePreOrden(nodeTrap->getLeft(), dotAux) + "\""
+            + std::to_string(nodeTrap->getData()->getLevel()) + "\" -> \"" + std::to_string(nodeTrap->getLeft()->getData()->getLevel())
+            + "\";\n";
         }
         if (nodeTrap->getRight() != nullptr) {
-            dotAux += traversePreOrden(nodeTrap->getRight(), dotAux) + "\"";
-            dotAux += nodeTrap->getData()->getLevel() + "\" -> \"" + nodeTrap->getRight()->getData()->getLevel();
-            dotAux += "\";\n";
+            dotAux += traversePreOrden(nodeTrap->getRight(), dotAux) + "\""
+            + std::to_string(nodeTrap->getData()->getLevel()) + "\" -> \"" + std::to_string(nodeTrap->getRight()->getData()->getLevel())
+            + "\";\n";
         }
     }
     return dotAux;

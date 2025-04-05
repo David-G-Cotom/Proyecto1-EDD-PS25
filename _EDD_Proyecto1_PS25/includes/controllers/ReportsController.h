@@ -7,8 +7,10 @@
 
 #include "../models/Game.h"
 #include "../models/objects/Enemy.h"
+#include "../models/objects/Track.h"
 #include "../models/objects/Trap.h"
 #include "../structs/list/LinkedList.h"
+#include "../structs/matrix/NodeMatrix.h"
 #include "../structs/tree/TreeBB.h"
 
 
@@ -19,13 +21,13 @@ public:
 
     ~ReportsController();
 
-    void gameReport();
+    void treasureLocationReport(NodeMatrix<Object> *treasureNode, LinkedList<Movement> *playerMovements);
 
-    void treasureLocationReport();
+    void trackReport(LinkedList<Track> *tracksFound);
 
-    void trackReport();
-
-    void reportEnemiesAndTraps();
+    void reportEnemiesAndTraps(TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *trapsTree);
+    void traversePreOrden(NodeTree<Trap> *nodeTrap);
+    void traversePreOrden(NodeTree<Enemy> *nodeEnemy);
 
     void gameHistoryReport(LinkedList<Game> *gamesHistory);
     void mergeSort(LinkedList<Game> *array, int left, int right, bool orderType);

@@ -8,8 +8,9 @@ void Track::setImage(std::string image) {
     this->image = image;
 }
 
-Track::Track(std::string type) {
+Track::Track(std::string type, const int distance) {
     this->type = type;
+    this->distance = distance;
 }
 
 std::string Track::getType() {
@@ -18,6 +19,14 @@ std::string Track::getType() {
 
 void Track::setType(std::string type) {
     this->type = type;
+}
+
+int Track::getDistance() {
+    return this->distance;
+}
+
+void Track::setDistance(const int distance) {
+    this->distance = distance;
 }
 
 

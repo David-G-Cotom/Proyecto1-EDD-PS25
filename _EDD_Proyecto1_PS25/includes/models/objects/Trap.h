@@ -13,6 +13,7 @@ class Trap : public Object {
 private:
     int level;
     int damage;
+    bool wasFound;
 
 public:
     void setImage(std::string image) override;
@@ -24,6 +25,9 @@ public:
 
     int getDamage();
     void setDamage(int damage);
+
+    bool getWasFound();
+    void setWasFound(bool wasFound);
 
 };
 

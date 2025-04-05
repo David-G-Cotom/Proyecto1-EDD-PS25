@@ -6,11 +6,17 @@
 #include "../../includes/Utilities.h"
 #include "../../includes/models/objects/Potion.h"
 
+#include <chrono>
+
 GameController::GameController() {
     this->enemiesTree = new TreeBB<Enemy>();
     this->trapsTree = new TreeBB<Trap>();
+    this->tracksFound = new LinkedList<Track>();
+    this->time = 0;
     this->historyController = new HistoryController();
     this->reportsController = new ReportsController();
+    this->gameOver = false;
+    this->currentGame = nullptr;
 }
 
 GameController::~GameController() = default;
@@ -34,6 +40,8 @@ void GameController::initializeBoard() {
 }
 
 void GameController::init() {
+    auto startTime = std::chrono::steady_clock::now();
+
     std::string fileName;
     std::cout << "Ingrese el Nombre/Direccion del Archivo con el Historial de Partidas: ";
     getline(std::cin, fileName);
@@ -75,6 +83,33 @@ void GameController::init() {
         newNode->setData(this->player);
         this->board->setPlayerNode(newNode);
     }
+
+    auto endTime = std::chrono::steady_clock::now();
+    this->time = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
+
+    this->currentGame = new Game(this->player->getName(), this->player->getScore(), this->time, this->player->getMovements()->getSize());
+    this->gamesHistory->addElementAt(this->currentGame);
+    this->gameReport();
+
+    int option;
+    do {
+        std::cout << "1. Ver Reportes\n2. Salir" << std::endl;
+        Utilities::verifyNumericEntry(option, "Opcion: ");
+        switch (option) {
+            case 1: {
+                this->generateReports();
+                break;
+            }
+            case 2: {
+                std::cout << "JUEGO FINALIZADO!!!" << std::endl;
+                break;
+            }
+            default: {
+                std::cout << "Error!!! Opcion No Valida." << std::endl;
+                break;
+            }
+        }
+    } while (option != 1 && option != 2);
 }
 
 NodeMatrix<Object> *GameController::verifyMovement(const char movement) {
@@ -105,11 +140,11 @@ void GameController::checkNode(NodeMatrix<Object> *node) {
     if (node->getData() != nullptr
         && dynamic_cast<Enemy*>(node->getData()) != nullptr) {
         int level = ((node->getX() + 1) * 100) + ((node->getY() + 1) * 10) + (node->getZ() + 1);
-        Enemy *enemy = this->enemiesTree->search(level);
+        Enemy *enemy = this->enemiesTree->search(level, false);
+        enemy->setWasFound(true);
         std::cout << "Encontraste un Enemigo!!! de nivel: " << enemy->getLevel() << std::endl;
-        std::string event = "Ha encontrado un Enemigo de nivel " + enemy->getLevel();
-        event += " y ha recibido " + enemy->getDamage();
-        event += " de damage.";
+        std::string event = "Ha encontrado un Enemigo de nivel " + std::to_string(enemy->getLevel()) +
+                            " y ha recibido " + std::to_string(enemy->getDamage()) + " de damage.";
         if (this->player->getDamage(enemy->getDamage())) {
             std::cout << "Has Perdido!!! Te has Quedado Sin Vida" << std::endl;
             this->gameOver = true;
@@ -126,11 +161,11 @@ void GameController::checkNode(NodeMatrix<Object> *node) {
     if (node->getData() != nullptr
         && dynamic_cast<Trap*>(node->getData()) != nullptr) {
         int level = ((node->getZ() + 1) * 100) + ((node->getY() + 1) * 10) + (node->getX() + 1);
-        Trap *trap = this->trapsTree->search(level);
+        Trap *trap = this->trapsTree->search(level, true);
+        trap->setWasFound(true);
         std::cout << "Encontraste una Trampa!!! de nivel: " << trap->getLevel() << std::endl;
-        std::string event = "Ha encontrado una Trampa de nivel " + trap->getLevel();
-        event += " y ha recibido " + trap->getDamage();
-        event += " de damage.";
+        std::string event = "Ha encontrado una Trampa de nivel " + std::to_string(trap->getLevel()) +
+                            " y ha recibido " + std::to_string(trap->getDamage()) + " de damage.";
         if (this->player->getDamage(trap->getDamage())) {
             std::cout << "Has Perdido!!! Te has Quedado Sin Vida" << std::endl;
             this->gameOver = true;
@@ -147,10 +182,11 @@ void GameController::checkNode(NodeMatrix<Object> *node) {
     if (node->getData() != nullptr) {
         auto *track = dynamic_cast<Track*>(node->getData());
         if (track != nullptr) {
-            std::cout << "Encontraste una Pista!!! con el Siguiente Mensaje: " << track->getType() << std::endl;
+            std::cout << "Encontraste una Pista!!! con el Siguiente Mensaje: " << track->getType() << " (" << track->getDistance() << ")Pasos" << std::endl;
             std::string event = "Ha encontrado una Pista con el mensaje de: " + track->getType();
             auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), event, this->player->getLife());
             this->player->getMovements()->addElementAt(newMovement);
+            this->tracksFound->addElementAt(track);
             return;
         }
     }
@@ -159,8 +195,7 @@ void GameController::checkNode(NodeMatrix<Object> *node) {
         auto *potion = dynamic_cast<Potion*>(node->getData());
         if (potion != nullptr) {
             std::cout << "Encontraste una Posion!!!";
-            std::string event = "Ha encontrado una Posion y ha recuperado: " + potion->getHealing();
-            event += " de salud";
+            std::string event = "Ha encontrado una Posion y ha recuperado: " + std::to_string(potion->getHealing()) + " de salud";
             auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), event, this->player->getLife());
             this->player->getMovements()->addElementAt(newMovement);
             this->player->getHealth(potion->getHealing());
@@ -171,14 +206,14 @@ void GameController::checkNode(NodeMatrix<Object> *node) {
         }
     }
     //NO ENCONTRO NADA
-    auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), "No encontro nada en el camino ", this->player->getLife());
+    auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), "No encontro nada en el camino", this->player->getLife());
     this->player->getMovements()->addElementAt(newMovement);
 }
 
 void GameController::generateReports() {
     int option;
     do {
-        std::cout << "1. Reporte de la Partida" << std::endl;
+        std::cout << "\n1. Reporte de la Partida" << std::endl;
         std::cout << "2. Ubicacion del tesoro y trayectoria del jugador" << std::endl;
         std::cout << "3. Pistas encontradas y su distancia al tesoro" << std::endl;
         std::cout << "4. Enemigos enfrentados y trampas activadas" << std::endl;
@@ -188,19 +223,19 @@ void GameController::generateReports() {
         Utilities::verifyNumericEntry(option, "Opcion: ");
         switch (option) {
             case 1: {
-                this->reportsController->gameReport();
+                this->gameReport();
                 break;
             }
             case 2: {
-                this->reportsController->treasureLocationReport();
+                this->reportsController->treasureLocationReport(this->board->getTreasureNode(), this->player->getMovements());
                 break;
             }
             case 3: {
-                this->reportsController->trackReport();
+                this->reportsController->trackReport(this->tracksFound);
                 break;
             }
             case 4: {
-                this->reportsController->reportEnemiesAndTraps();
+                this->reportsController->reportEnemiesAndTraps(this->enemiesTree, this->trapsTree);
                 break;
             }
             case 5: {
@@ -208,6 +243,7 @@ void GameController::generateReports() {
                 break;
             }
             case 6: {
+                std::cout << "--- Reporte de los Graficos de los Arboles de Enemigos y Trampas ---";
                 this->reportsController->treeReport(this->enemiesTree, this->trapsTree);
                 break;
             }
@@ -221,6 +257,14 @@ void GameController::generateReports() {
             }
         }
     } while (option != 7);
+}
+
+void GameController::gameReport() {
+    std::cout << "\n--- Reporte de la Partida Actual ---" << std::endl;
+    std::cout << "Nombre del Jugador: " << this->currentGame->getPlayerName() << std::endl;
+    std::cout << "Tiempo Total de la Partida: " << this->currentGame->getTime() / 1000 << "s" << std::endl;
+    std::cout << "Total de Movimientos: " << this->currentGame->getMovements() << std::endl;
+    std::cout << "Puntuacion: " << this->currentGame->getScore() << std::endl;
 }
 
 

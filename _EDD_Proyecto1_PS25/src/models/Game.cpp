@@ -4,7 +4,7 @@
 
 #include "../../includes/models/Game.h"
 
-Game::Game(std::string playerName, int score, double time, int movements) {
+Game::Game(std::string playerName, const int score, const long time, const int movements) {
     this->playerName = playerName;
     this->score = score;
     this->time = time;
@@ -25,15 +25,15 @@ int Game::getScore() {
     return this->score;
 }
 
-void Game::setScore(int score) {
+void Game::setScore(const int score) {
     this->score = score;
 }
 
-double Game::getTime() {
+long Game::getTime() {
     return this->time;
 }
 
-void Game::setTime(double time) {
+void Game::setTime(const long time) {
     this->time = time;
 }
 

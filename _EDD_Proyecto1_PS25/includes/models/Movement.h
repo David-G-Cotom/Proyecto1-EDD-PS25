@@ -33,6 +33,8 @@ public:
     int getRemainingLife();
     void setRemainingLife(int remainingLife);
 
+    std::string convertToString();
+
 };
 
 

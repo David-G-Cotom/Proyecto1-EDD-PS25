@@ -13,11 +13,11 @@ class Game {
 private:
     std::string playerName;
     int score;
-    double time;
+    long time;
     int movements;
 
 public:
-    Game(std::string playerName, int score, double time, int movements);
+    Game(std::string playerName, int score, long time, int movements);
     ~Game();
 
     std::string getPlayerName();
@@ -26,8 +26,8 @@ public:
     int getScore();
     void setScore(int score);
 
-    double getTime();
-    void setTime(double time);
+    long getTime();
+    void setTime(long time);
 
     int getMovements();
     void setMovements(int movements);
