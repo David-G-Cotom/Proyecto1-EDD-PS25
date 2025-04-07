@@ -122,17 +122,14 @@ public:
         return this->root == nullptr;
     }
 
-    NodeMatrix<T> *getNode(int x, int y, int z) {
+    NodeMatrix<T> *getNode(const int x, const int y, const int z) {
         NodeMatrix<T> *aux = this->root;
-        for (int i = 0; i < x; ++i) {
-            aux = aux->getBottom();
-        }
-        for (int i = 0; i < y; ++i) {
-            aux = aux->getNext();
-        }
-        for (int i = 0; i < z; ++i) {
-            aux = aux->getBack();
-        }
+        for (int i = 0; i < x; ++i) aux = aux->getBottom();
+
+        for (int i = 0; i < y; ++i) aux = aux->getNext();
+
+        for (int i = 0; i < z; ++i) aux = aux->getBack();
+
         return aux;
     }
 

@@ -21,6 +21,10 @@ private:
     NodeMatrix<Object> *playerNode;
     Object *dataBelowThePlayer;
     int totalNodes;
+    int totalEnemies;
+    int totalTraps;
+    int totalTracks;
+    int totalPotions;
 
     void putTreasure();
     void putPlayer(Player *player);
@@ -49,6 +53,18 @@ public:
 
     int getTotalNodes();
     void setTotalNodes(int totalNodes);
+
+    int getTotalEnemies();
+    void setTotalEnemies(int totalEnemies);
+
+    int getTotalTraps();
+    void setTotalTraps(int totalTraps);
+
+    int getTotalTracks();
+    void setTotalTracks(int totalTracks);
+
+    int getTotalPotions();
+    void setTotalPotions(int totalPotions);
 
     void createBoard(Player *player, TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *trapsTree);
     void deleteBoard();

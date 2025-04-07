@@ -9,8 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/HistoryController.cpp.o.d"
   "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/ReportsController.cpp.o"
   "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/ReportsController.cpp.o.d"
-  "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o"
-  "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o.d"
   "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o"
   "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o.d"
   "CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Game.cpp.o"

@@ -5,6 +5,7 @@
 #include "../../includes/controllers/ReportsController.h"
 #include "../../includes/Utilities.h"
 
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 
@@ -19,10 +20,12 @@ void ReportsController::treasureLocationReport(NodeMatrix<Object> *treasureNode,
     std::cout << "Coordenada Z: " << treasureNode->getZ() << std::endl;
     std::cout << "--- Trayectoria del Jugador ---" << std::endl;
     NodeList<Movement> *aux = playerMovements->getHead();
+    int i = 1;
     while (aux != nullptr) {
+        std::cout << "-> Movimiento: " << i << std::endl;
         std::cout << aux->getData()->convertToString() << std::endl;
-        std::cout << "--- --- ---" << std::endl;
         aux = aux->getNext();
+        i++;
     }
 }
 
@@ -33,7 +36,6 @@ void ReportsController::trackReport(LinkedList<Track> *tracksFound) {
         std::cout << "Pista de Tipo: " << aux->getData()->getType() << ", con Distancia de " << aux->getData()->getDistance() << " pasos" << std::endl;
         aux = aux->getNext();
     }
-    std::cout << std::endl;
 }
 
 void ReportsController::reportEnemiesAndTraps(TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *trapsTree) {
@@ -167,6 +169,7 @@ void ReportsController::treeReport(TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *tra
     dot += this->traversePreOrden(enemiesTree->getRoot(), dot);
     dot += "\nnode[color=transparent style=filled];\nnode[shape = box];Trampas\nnode[shape = circle];\n";
     dot += this->traversePreOrden(trapsTree->getRoot(), dot) + "\n}";
+    std::filesystem::create_directories("../Graficas");
     std::ofstream file;
     file.open("../Graficas/ReporteArboles.txt");
     if (file.is_open()) {
@@ -180,19 +183,19 @@ void ReportsController::treeReport(TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *tra
 std::string ReportsController::traversePreOrden(NodeTree<Enemy> *nodeEnemy, std::string dot) {
     std::string dotAux;
     if (nodeEnemy != nullptr) {
-        dotAux += "\"" + std::to_string(nodeEnemy->getData()->getLevel())
+        dotAux += "\"E" + std::to_string(nodeEnemy->getData()->getLevel())
         + "\"[label=<" + std::to_string(nodeEnemy->getData()->getLevel())
         + "<br/>Damage: " + std::to_string(nodeEnemy->getData()->getDamage())
         + "<br/>Encontrado: " + std::to_string(nodeEnemy->getData()->getWasFound())
         + "> fillcolor=\"#8080F0\"];\n";
         if (nodeEnemy->getLeft() != nullptr) {
-            dotAux += traversePreOrden(nodeEnemy->getLeft(), dotAux) + "\""
-            +  std::to_string(nodeEnemy->getData()->getLevel()) + "\" -> \"" + std::to_string(nodeEnemy->getLeft()->getData()->getLevel())
+            dotAux += traversePreOrden(nodeEnemy->getLeft(), dotAux) + "\"E"
+            +  std::to_string(nodeEnemy->getData()->getLevel()) + "\" -> \"E" + std::to_string(nodeEnemy->getLeft()->getData()->getLevel())
             + "\";\n";
         }
         if (nodeEnemy->getRight() != nullptr) {
-            dotAux += traversePreOrden(nodeEnemy->getRight(), dotAux) + "\""
-            + std::to_string(nodeEnemy->getData()->getLevel()) + "\" -> \"" + std::to_string(nodeEnemy->getRight()->getData()->getLevel())
+            dotAux += traversePreOrden(nodeEnemy->getRight(), dotAux) + "\"E"
+            + std::to_string(nodeEnemy->getData()->getLevel()) + "\" -> \"E" + std::to_string(nodeEnemy->getRight()->getData()->getLevel())
             + "\";\n";
         }
     }
@@ -202,19 +205,19 @@ std::string ReportsController::traversePreOrden(NodeTree<Enemy> *nodeEnemy, std:
 std::string ReportsController::traversePreOrden(NodeTree<Trap> *nodeTrap, std::string dot) {
     std::string dotAux;
     if (nodeTrap != nullptr) {
-        dotAux += "\"" + std::to_string(nodeTrap->getData()->getLevel())
+        dotAux += "\"T" + std::to_string(nodeTrap->getData()->getLevel())
         + "\"[label=<" + std::to_string(nodeTrap->getData()->getLevel())
         + "<br/>Damage: " + std::to_string(nodeTrap->getData()->getDamage())
         + "<br/>Encontrada: " + std::to_string(nodeTrap->getData()->getWasFound())
-        + "> fillcolor=\"#8080F0\"];\n";
+        + "> fillcolor=\"#F08080\"];\n";
         if (nodeTrap->getLeft() != nullptr) {
-            dotAux += traversePreOrden(nodeTrap->getLeft(), dotAux) + "\""
-            + std::to_string(nodeTrap->getData()->getLevel()) + "\" -> \"" + std::to_string(nodeTrap->getLeft()->getData()->getLevel())
+            dotAux += traversePreOrden(nodeTrap->getLeft(), dotAux) + "\"T"
+            + std::to_string(nodeTrap->getData()->getLevel()) + "\" -> \"T" + std::to_string(nodeTrap->getLeft()->getData()->getLevel())
             + "\";\n";
         }
         if (nodeTrap->getRight() != nullptr) {
-            dotAux += traversePreOrden(nodeTrap->getRight(), dotAux) + "\""
-            + std::to_string(nodeTrap->getData()->getLevel()) + "\" -> \"" + std::to_string(nodeTrap->getRight()->getData()->getLevel())
+            dotAux += traversePreOrden(nodeTrap->getRight(), dotAux) + "\"T"
+            + std::to_string(nodeTrap->getData()->getLevel()) + "\" -> \"T" + std::to_string(nodeTrap->getRight()->getData()->getLevel())
             + "\";\n";
         }
     }

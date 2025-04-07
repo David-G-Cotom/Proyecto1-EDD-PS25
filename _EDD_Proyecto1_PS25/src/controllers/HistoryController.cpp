@@ -25,16 +25,18 @@ LinkedList<Game> *HistoryController::loadHistory(std::string &fileName) {
         std::istringstream iss(line);
         std::string playerName;
         int score;
+        int time;
         int movements;
-        if (getline(iss, playerName, ',') && iss >> score && iss.ignore() && iss >> movements) {
-            auto game = new Game(playerName, score, 0, movements);
+        if (getline(iss, playerName, ',') && iss >> score && iss.ignore() && iss >> time && iss.ignore() && iss >> movements) {
+            auto game = new Game(playerName, score, time, movements);
             history->addElementAt(game);
         } else {
             std::cout << "Error al extraer los datos de la linea: " << line << std::endl;
         }
     }
     file.close();
-    std::cout << "Archivo Leido!!!\n" << std::endl;
+    std::cout << "Archivo Leido!!!" << std::endl;
+    std::cout << "Se registraron: " << history->getSize() << " partidas\n" << std::endl;
     return history;
 }
 

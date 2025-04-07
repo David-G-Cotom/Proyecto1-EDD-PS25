@@ -34,8 +34,6 @@ add_executable(_EDD_Proyecto1_PS25 main.cpp
         src/models/Board.cpp
         includes/models/objects/Path.h
         src/models/objects/Path.cpp
-        includes/controllers/TreesController.h
-        src/controllers/TreesController.cpp
         includes/models/Game.h
         src/models/Game.cpp
         includes/controllers/HistoryController.h

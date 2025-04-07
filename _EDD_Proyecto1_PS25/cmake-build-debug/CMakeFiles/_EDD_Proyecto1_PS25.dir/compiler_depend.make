@@ -1110,9 +1110,6 @@ CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/ReportsController.cpp.o: /mnt
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
-CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o: /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/controllers/TreesController.cpp \
-  /usr/include/stdc-predef.h
-
 CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/Board.cpp.o: /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/models/Board.cpp \
   /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/includes/structs/list/LinkedList.h \
   /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/includes/structs/list/NodeList.h \
@@ -2957,8 +2954,6 @@ CMakeFiles/_EDD_Proyecto1_PS25.dir/src/models/objects/Treasure.cpp.o: /mnt/e/Doc
 /usr/include/c++/13/cerrno:
 
 /usr/include/ctype.h:
-
-/mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/src/controllers/TreesController.cpp:
 
 /mnt/e/Documentos\ Carlos\ Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/includes/structs/list/LinkedList.h:
 

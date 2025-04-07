@@ -7,10 +7,14 @@
 #include "../../includes/models/objects/Track.h"
 #include "../../includes/models/objects/Treasure.h"
 
-Board::Board(int dimensionX, int dimensionY, int dimensionZ) {
+Board::Board(const int dimensionX, const int dimensionY, const int dimensionZ) {
     this->orthogonalMatrix = new OrthogonalMatrix<Object>(dimensionX, dimensionY, dimensionZ);
     this->treasureNode = nullptr;
     this->totalNodes = dimensionX * dimensionY * dimensionZ;
+    this->totalEnemies = 0;
+    this->totalTraps = 0;
+    this->totalPotions = 0;
+    this->totalTracks = 0;
 }
 
 Board::~Board() {
@@ -54,8 +58,40 @@ int Board::getTotalNodes() {
     return this->totalNodes;
 }
 
-void Board::setTotalNodes(int totalNodes) {
+void Board::setTotalNodes(const int totalNodes) {
     this->totalNodes = totalNodes;
+}
+
+int Board::getTotalEnemies() {
+    return this->totalEnemies;
+}
+
+void Board::setTotalEnemies(const int totalEnemies) {
+    this->totalEnemies = totalEnemies;
+}
+
+int Board::getTotalTraps() {
+    return this->totalTraps;
+}
+
+void Board::setTotalTraps(const int totalTraps) {
+    this->totalTraps = totalTraps;
+}
+
+int Board::getTotalTracks() {
+    return this->totalTracks;
+}
+
+void Board::setTotalTracks(const int totalTracks) {
+    this->totalTracks = totalTracks;
+}
+
+int Board::getTotalPotions() {
+    return this->totalPotions;
+}
+
+void Board::setTotalPotions(const int totalPotions) {
+    this->totalPotions = totalPotions;
 }
 
 void Board::createBoard(Player *player, TreeBB<Enemy> *enemiesTree, TreeBB<Trap> *trapsTree) {
@@ -74,6 +110,10 @@ void Board::createBoard(Player *player, TreeBB<Enemy> *enemiesTree, TreeBB<Trap>
             this->putTracks();
         }   // else SE QUEDA EL PATH LIBRE
     }
+    std::cout << "Enemigos Colocados en el Mapa: " << this->totalEnemies << std::endl;
+    std::cout << "Trampas Colocadas en el Mapa: " << this->totalTraps << std::endl;
+    std::cout << "Pociones Colocadas en el Mapa: " << this->totalPotions << std::endl;
+    std::cout << "Pistas Colocadas en el Mapa: " << this->totalTracks << std::endl;
 }
 
 void Board::deleteBoard() {
@@ -92,7 +132,7 @@ void Board::putTreasure() {
         || dynamic_cast<Path*>(treasureNode->getData()) == nullptr);
     delete treasureNode->getData();
     auto *treasure = new Treasure();
-    treasure->setImage("$");
+    treasure->setImage(" ");
     treasureNode->setData(treasure);
     this->treasureNode = treasureNode;
     std::cout << "Tesoro Colocado en el Mapa" << std::endl;
@@ -129,11 +169,11 @@ void Board::putEnemies(TreeBB<Enemy> *enemiesTree) {
     int level = ((x + 1) * 100) + ((y + 1) * 10) + (z + 1);
     int damage = (rand() % 15) + 1;
     auto *enemy = new Enemy(level, damage);
-    enemy->setImage("!");
+    enemy->setImage(" ");
     enemyNode->setData(enemy);
     auto *enemyNodeTree = new NodeTree(enemy, level);
     enemiesTree->insert(enemyNodeTree, false);
-    std::cout << "Enemigo Colocado en el Mapa" << std::endl;
+    this->totalEnemies++;
 }
 
 void Board::putTraps(TreeBB<Trap> *trapsTree) {
@@ -151,11 +191,11 @@ void Board::putTraps(TreeBB<Trap> *trapsTree) {
     int level = ((z + 1) * 100) + ((y + 1) * 10) + (x + 1);
     int damage = (rand() % 10) + 1;
     auto *trap = new Trap(level, damage);
-    trap->setImage("#");
+    trap->setImage(" ");
     trapNode->setData(trap);
     auto *trapNodeTree = new NodeTree(trap, level);
     trapsTree->insert(trapNodeTree, true);
-    std::cout << "Trampa Colocada en el Mapa" << std::endl;
+    this->totalTraps++;
 }
 
 void Board::putPotions() {
@@ -171,9 +211,9 @@ void Board::putPotions() {
     delete potionNode->getData();
     int healing = (rand() % 10) + 1;
     auto *potion = new Potion(healing);
-    potion->setImage("&");
+    potion->setImage(" ");
     potionNode->setData(potion);
-    std::cout << "Pocion Colocado en el Mapa" << std::endl;
+    this->totalPotions++;
 }
 
 void Board::putTracks() {
@@ -193,7 +233,7 @@ void Board::putTracks() {
     auto *track = new Track(trackType, distance);
     track->setImage("?");
     trackNode->setData(track);
-    std::cout << "Pista Colocada en el Mapa" << std::endl;
+    this->totalTracks++;
 }
 
 std::string Board::getTrack(const int distance) {

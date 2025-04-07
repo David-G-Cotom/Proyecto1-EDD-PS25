@@ -249,30 +249,6 @@ src/controllers/ReportsController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/ReportsController.cpp.s
 .PHONY : src/controllers/ReportsController.cpp.s
 
-src/controllers/TreesController.o: src/controllers/TreesController.cpp.o
-.PHONY : src/controllers/TreesController.o
-
-# target to build an object file
-src/controllers/TreesController.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.o
-.PHONY : src/controllers/TreesController.cpp.o
-
-src/controllers/TreesController.i: src/controllers/TreesController.cpp.i
-.PHONY : src/controllers/TreesController.i
-
-# target to preprocess a source file
-src/controllers/TreesController.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.i
-.PHONY : src/controllers/TreesController.cpp.i
-
-src/controllers/TreesController.s: src/controllers/TreesController.cpp.s
-.PHONY : src/controllers/TreesController.s
-
-# target to generate assembly for a file
-src/controllers/TreesController.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/_EDD_Proyecto1_PS25.dir/build.make CMakeFiles/_EDD_Proyecto1_PS25.dir/src/controllers/TreesController.cpp.s
-.PHONY : src/controllers/TreesController.cpp.s
-
 src/models/Board.o: src/models/Board.cpp.o
 .PHONY : src/models/Board.o
 
@@ -561,9 +537,6 @@ help:
 	@echo "... src/controllers/ReportsController.o"
 	@echo "... src/controllers/ReportsController.i"
 	@echo "... src/controllers/ReportsController.s"
-	@echo "... src/controllers/TreesController.o"
-	@echo "... src/controllers/TreesController.i"
-	@echo "... src/controllers/TreesController.s"
 	@echo "... src/models/Board.o"
 	@echo "... src/models/Board.i"
 	@echo "... src/models/Board.s"

@@ -1,4 +1,4 @@
 /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25" -B "/mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/cmake-build-debug"
--- Configuring done (0.0s)
--- Generating done (0.1s)
+-- Configuring done (0.1s)
+-- Generating done (0.2s)
 -- Build files have been written to: /mnt/e/Documentos Carlos Cotom/Desktop/David/2025/PS25/LEDD/Proyecto1/Proyecto1-EDD-PS25/_EDD_Proyecto1_PS25/cmake-build-debug

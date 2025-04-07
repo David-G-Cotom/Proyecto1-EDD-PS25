@@ -40,6 +40,7 @@ void GameController::initializeBoard() {
 }
 
 void GameController::init() {
+    std::cout << "----- Bienvenido al Juego de Buscar el Tesoro -----" << std::endl;
     auto startTime = std::chrono::steady_clock::now();
 
     std::string fileName;
@@ -58,6 +59,7 @@ void GameController::init() {
 
     char movement;
     while (this->player->getLife() > 0 && !this->gameOver) {
+        std::cout << std::endl;
         this->board->printBoard(this->board->getOrthogonalMatrix()->getRoot(), this->board->getOrthogonalMatrix()->getRoot());
         std::cout << "Vida del Jugador: " << this->player->getLife() << std::endl;
         std::cout << "Puntos del Jugaodr: " << this->player->getScore() << std::endl;
@@ -83,7 +85,7 @@ void GameController::init() {
         newNode->setData(this->player);
         this->board->setPlayerNode(newNode);
     }
-
+    std::cout << "FIN DE PARTIDA!!!" << std::endl;
     auto endTime = std::chrono::steady_clock::now();
     this->time = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
 
@@ -129,7 +131,7 @@ void GameController::checkNode(NodeMatrix<Object> *node) {
     if (node->getX() == this->board->getTreasureNode()->getX()
         && node->getY() == this->board->getTreasureNode()->getY()
         && node->getZ() == this->board->getTreasureNode()->getZ()) {
-        std::cout << "Felicidades!!! Has Encontrado el Tesotro" << std::endl;
+        std::cout << "Felicidades!!! Has Encontrado el Tesoro" << std::endl;
         this->player->setScore(this->player->getScore() + this->player->getLife()*10);
         this->gameOver = true;
         auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), "Ha encontrado el Tesoro", this->player->getLife());
@@ -248,7 +250,7 @@ void GameController::generateReports() {
                 break;
             }
             case 7: {
-                std::cout << "SALIENDO DEL JUEOG!!!" << std::endl;
+                std::cout << "SALIENDO DEL JUEGO!!!" << std::endl;
                 break;
             }
             default: {
