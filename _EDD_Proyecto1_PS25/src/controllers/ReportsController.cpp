@@ -158,7 +158,7 @@ void ReportsController::printLeaderBoard(LinkedList<Game> *gamesHistory) {
     int i = 1;
     while (aux != nullptr) {
         std::cout << i << ". " << aux->getData()->getPlayerName() << " -> " << aux->getData()->getScore() << " puntos, "
-        << aux->getData()->getMovements() << " movimientos -> " << aux->getData()->getTime() / 1000 << " s" << std::endl;
+        << aux->getData()->getMovements() << " movimientos -> " << aux->getData()->getTime() << " s" << std::endl;
         aux = aux->getNext();
         i++;
     }

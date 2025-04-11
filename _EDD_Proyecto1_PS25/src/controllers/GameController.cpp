@@ -62,7 +62,14 @@ void GameController::init() {
         std::cout << std::endl;
         this->board->printBoard(this->board->getOrthogonalMatrix()->getRoot(), this->board->getOrthogonalMatrix()->getRoot());
         std::cout << "Vida del Jugador: " << this->player->getLife() << std::endl;
-        std::cout << "Puntos del Jugaodr: " << this->player->getScore() << std::endl;
+        std::cout << "Puntos del Jugador: " << this->player->getScore() << std::endl;
+        std::cout << "X. Abandonar Partida, C. Continuar Jugando" << std::endl;
+        std::cin >> movement;
+        movement = toupper(movement);
+        if (movement == 'X') {
+            this->gameOver = true;
+            break;
+        }
         NodeMatrix<Object> *newNode;
         do {
             std::cout << "W. Arriba, S. Abajo, A. Izquierda, D. Derecha, Q. Atras, E. Adelante" << std::endl;
@@ -89,7 +96,7 @@ void GameController::init() {
     auto endTime = std::chrono::steady_clock::now();
     this->time = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
 
-    this->currentGame = new Game(this->player->getName(), this->player->getScore(), this->time, this->player->getMovements()->getSize());
+    this->currentGame = new Game(this->player->getName(), this->player->getScore(), this->time / 1000, this->player->getMovements()->getSize());
     this->gamesHistory->addElementAt(this->currentGame);
     this->gameReport();
 
@@ -264,7 +271,7 @@ void GameController::generateReports() {
 void GameController::gameReport() {
     std::cout << "\n--- Reporte de la Partida Actual ---" << std::endl;
     std::cout << "Nombre del Jugador: " << this->currentGame->getPlayerName() << std::endl;
-    std::cout << "Tiempo Total de la Partida: " << this->currentGame->getTime() / 1000 << "s" << std::endl;
+    std::cout << "Tiempo Total de la Partida: " << this->currentGame->getTime() << "s" << std::endl;
     std::cout << "Total de Movimientos: " << this->currentGame->getMovements() << std::endl;
     std::cout << "Puntuacion: " << this->currentGame->getScore() << std::endl;
 }
