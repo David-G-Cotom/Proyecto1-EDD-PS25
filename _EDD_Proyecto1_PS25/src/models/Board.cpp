@@ -231,7 +231,7 @@ void Board::putTracks() {
     int distance = std::abs(x - this->treasureNode->getX()) + std::abs(y - this->treasureNode->getY()) + std::abs(z - this->treasureNode->getZ());
     std::string trackType = this->getTrack(distance);
     auto *track = new Track(trackType, distance);
-    track->setImage("?");
+    track->setImage(" ");
     trackNode->setData(track);
     this->totalTracks++;
 }

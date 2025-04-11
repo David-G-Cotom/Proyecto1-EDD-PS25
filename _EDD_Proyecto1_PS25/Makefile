@@ -1,4 +1,4 @@
-TARGET=Ejecutable/Proyecto1
+TARGET=Proyecto1
 
 SRCS=main.cpp $(wildcard src/*.cpp) $(wildcard src/controllers/*.cpp) $(wildcard src/models/*.cpp) $(wildcard src/models/objects/*.cpp)
 
