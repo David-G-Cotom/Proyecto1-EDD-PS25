@@ -20,6 +20,8 @@ Board::Board(const int dimensionX, const int dimensionY, const int dimensionZ) {
 Board::~Board() {
     delete this->orthogonalMatrix;
     delete this->treasureNode;
+    delete this->playerNode;
+    delete this->dataBelowThePlayer;
 }
 
 OrthogonalMatrix<Object>* Board::getOrthogonalMatrix() {

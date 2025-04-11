@@ -19,7 +19,17 @@ GameController::GameController() {
     this->currentGame = nullptr;
 }
 
-GameController::~GameController() = default;
+GameController::~GameController() {
+    delete this->board;
+    delete this->player;
+    delete this->enemiesTree;
+    delete this->trapsTree;
+    delete this->tracksFound;
+    delete this->gamesHistory;
+    delete this->historyController;
+    delete this->reportsController;
+    delete this->currentGame;
+}
 
 void GameController::initializeBoard() {
     int dimensionX, dimensionY, dimensionZ;
@@ -203,7 +213,7 @@ void GameController::checkNode(NodeMatrix<Object> *node) {
     if (node->getData() != nullptr) {
         auto *potion = dynamic_cast<Potion*>(node->getData());
         if (potion != nullptr) {
-            std::cout << "Encontraste una Posion!!!";
+            std::cout << "Encontraste una Posion!!!" << std::endl;
             std::string event = "Ha encontrado una Posion y ha recuperado: " + std::to_string(potion->getHealing()) + " de salud";
             auto *newMovement = new Movement(node->getX(), node->getY(), node->getZ(), event, this->player->getLife());
             this->player->getMovements()->addElementAt(newMovement);

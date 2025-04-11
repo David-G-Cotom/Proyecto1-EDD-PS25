@@ -17,13 +17,15 @@ Player::Player(std::string name) {
     this->movements = new LinkedList<Movement>();
 }
 
-Player::~Player() = default;
+Player::~Player() {
+    delete this->movements;
+}
 
 int Player::getLife() {
     return this->life;
 }
 
-void Player::setLife(int life) {
+void Player::setLife(const int life) {
     this->life = life;
 }
 
@@ -43,7 +45,7 @@ int Player::getScore() {
     return this->score;
 }
 
-void Player::setScore(int score) {
+void Player::setScore(const int score) {
     this->score = score;
 }
 
@@ -55,7 +57,7 @@ void Player::setMovements(LinkedList<Movement> *movements) {
     this->movements = movements;
 }
 
-bool Player::getDamage(int damage) {
+bool Player::getDamage(const int damage) {
     std::cout << "Has Recibido: " << damage << " de Damage" << std::endl;
     this->life -= damage;
     std::cout << "Perdiste: " << damage << " Puntos" << std::endl;
@@ -67,7 +69,7 @@ bool Player::getDamage(int damage) {
     return false;
 }
 
-void Player::getHealth(int health) {
+void Player::getHealth(const int health) {
     std::cout << "Has Recibido: " << health << " de Salud" << std::endl;
     this->life += health;
     std::cout << "Ganaste: " << health / 2 << " Puntos" << std::endl;
